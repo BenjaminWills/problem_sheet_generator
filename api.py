@@ -1,8 +1,11 @@
 import os
+import shutil
+
 
 from flask import Flask, send_file, url_for, jsonify, render_template, request
 
 from problem_generator.generate_problems import generate_problem_sheet
+from problem_generator.utilities import zip_files
 
 
 app = Flask(__name__)
@@ -23,14 +26,13 @@ def download():
     generate_problem_sheet(n_problems, formatted_topic)
 
     dir_path = "problem_sheets"
-    question_path = f"{dir_path}/{formatted_topic}.md"
-    answer_path = f"{dir_path}/{formatted_topic}_answers.md"
 
-    paths = [question_path, answer_path]
+    zip_path = f"{topic}_problems"
 
-    return send_file(paths, as_attachment=True)
-    for path in (question_path, answer_path):
-        os.remove(path)
+    zip_files(zip_path, dir_path)
+
+    shutil.rmtree("problem_sheets")
+    return send_file(f"{zip_path}.zip", as_attachment=True)
 
 
 if __name__ == "__main__":

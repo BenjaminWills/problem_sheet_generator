@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from typing import Dict
 
@@ -53,3 +54,7 @@ def mkdir_if_not_exists(dir_path: str) -> None:
     """
     if not os.path.exists(dir_path):
         os.mkdir(dir_path)
+
+
+def zip_files(target_path: str, source_path: str) -> None:
+    shutil.make_archive(target_path, "zip", source_path)
