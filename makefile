@@ -15,3 +15,6 @@ install_dependencies:
 run:
 	# Run main file
 	python generate_sheets.py
+
+build:
+	python api.py
