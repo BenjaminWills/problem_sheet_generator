@@ -18,8 +18,8 @@ def hello():
 
 @app.route("/download")
 def download():
-    n_problems = request.args.get("n-problems")
-    topic = request.args.get("topic")
+    n_problems = request.args.get("n-problems", 5)
+    topic = request.args.get("topic", "mathematics")
 
     formatted_topic = topic.replace("-", "_")
 
