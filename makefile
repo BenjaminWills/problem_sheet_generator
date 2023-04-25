@@ -14,4 +14,4 @@ install_dependencies:
 
 run:
 	# Run main file
-	python problem_generator/generate_problems.py
+	python generate_sheets.py

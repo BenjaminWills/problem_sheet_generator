@@ -3,7 +3,7 @@ import openai
 from openai import Completion
 from typing import Dict, List
 
-from utilities import make_gpt_message
+from problem_generator.utilities import make_gpt_message, GPT_message
 
 
 Errors = List[str]
@@ -36,15 +36,17 @@ class GPT_helper:
             Completion: Completion object that contains the message response
         """
         # Update message trace with user message
-        user_message = make_gpt_message(role="user", content=message)
+        user_message: GPT_message = make_gpt_message(role="user", content=message)
         self.update_messages(user_message)
 
-        response = openai.ChatCompletion.create(
+        response: Completion = openai.ChatCompletion.create(
             model=self.model, messages=self.messages, api_key=self.key
         )
 
         # Update message trace with assistant message
-        response_body = response.choices[0].message.content
-        response_message = make_gpt_message(role="assistant", content=response_body)
+        response_body: str = response.choices[0].message.content
+        response_message: GPT_message = make_gpt_message(
+            role="assistant", content=response_body
+        )
         self.update_messages(response_message)
         return response
