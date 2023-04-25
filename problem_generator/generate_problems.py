@@ -44,7 +44,3 @@ def generate_problem_sheet(num_problems: int, topic: str) -> None:
             answer_sheet.write(answers)
     except Exception as e:
         print(e)
-
-
-if __name__ == "__main__":
-    generate_problem_sheet(3, "linear algebra span and linear indepdendence")
