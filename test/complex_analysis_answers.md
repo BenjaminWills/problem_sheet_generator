@@ -1,0 +1,11 @@
+Sure, here are the answers to the questions:
+
+1. Factoring out $z$, we get $z(z^2 - 4) = 0$. The solutions are $z = 0, 2, -2$.
+
+2. We have $f(z) = e^z + z^2 = \sum_{n=0}^\infty \frac{z^n}{n!} + z^2$. The Laurent series centered at $z_0 = 0$ is given by $f(z) = \sum_{n=-\infty}^\infty a_n z^n$, where $a_n = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)}{(z-z_0)^{n+1}} dz$, and $\gamma$ is a simple closed curve containing $z_0$ and lying in the region of convergence of $f(z)$. In this case, $z_0 = 0$, so we have $a_n = \frac{1}{2\pi i} \oint_\gamma \frac{e^z + z^2}{z^{n+1}} dz$. We can take $\gamma$ to be a circle of radius $R$ centered at the origin. For $n < -1$, we have $a_n = 0$. For $n = -1$, we have $a_{-1} = \frac{1}{2\pi i} \oint_\gamma \frac{e^z + z^2}{z} dz$. Using the residue theorem, we find that $a_{-1} = 1$. For $n \geq 0$, we have $a_n = \frac{1}{2\pi i} \oint_\gamma \frac{e^z + z^2}{z^{n+1}} dz = \frac{1}{n!} + \frac{1}{2\pi i} \oint_\gamma \frac{z^2}{z^{n+1}} dz = \frac{1}{n!}$, since the second term vanishes by Cauchy's theorem. Therefore, the Laurent series of $f(z)$ centered at $z_0 = 0$ is given by $f(z) = \sum_{n=-\infty}^\infty \frac{1}{n!} z^n$, and the region of convergence is the entire complex plane.
+
+3. The function $f(z)$ has simple poles at $z = 0$ and $z = 1$. The residue at $z = 0$ is given by $\operatorname{Res}(f,0) = \lim_{z \to 0} zf(z) = 1$, since $\frac{e^z}{z(z-1)}$ has a removable singularity at $z=0$. To find the residue at $z = 1$, we can write $f(z) = \frac{e^z}{z^2} \cdot \frac{1}{1 - z^{-1}}$. Then we have $\operatorname{Res}(f,1) = \lim_{z \to 1} (z-1) f(z) = -\frac{e}{1^2} = -e$.
+
+4. Let $g(z) = f(z) e^{-a|z|}$. Since $|f(z)| \leq Ce^{a|z|}$, we have $|g(z)| \leq C$, so $g(z)$ is bounded. By Liouville's theorem, $g(z)$ must be constant, so $f(z) e^{-a|z|}$ is a constant. Since $e^{-a|z|} \neq 0$ for all $z$, we conclude that $f(z)$ must be a polynomial.
+
+5. Let $R$ be the radius of convergence of $f(z)$. Then we have $|z^{n!}| = |z|^{n!} < 1$ for all $z$ inside the disk $|z| < R$. Therefore, we must have $R \geq 1$. On the other hand, for $z = e^{2\pi i / (n+1)}$, we have $|z^{n!}| = |e^{2\pi i n!/(n+1)}| = 1$, so $z$ lies on the boundary of the disk of convergence. Therefore, $R = 1$, and the series converges exactly at the unit circle in the complex plane.
