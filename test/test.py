@@ -1,9 +1,9 @@
 import requests
 
-URL = "http://127.0.0.1:5000/download?=n-problems=5&topic=complex-analysis"
+URL = "http://127.0.0.1:5000/download?n-problems=5&topic=complex-analysis"
 
 
-def download_file(url):
+def download_file(url: str) -> str:
     local_filename = "problems.zip"
     # NOTE the stream=True parameter below
     with requests.get(url, stream=True) as r:
