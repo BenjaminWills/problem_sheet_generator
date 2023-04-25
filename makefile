@@ -16,5 +16,10 @@ run:
 	# Run main file
 	python generate_sheets.py
 
-build:
+start_api:
+	# Starts the api
 	python api.py
+
+cleanup:
+	# Removes all zip files from the present directory
+	find . -name "*.zip" -type f -delete

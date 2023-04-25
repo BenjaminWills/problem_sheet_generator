@@ -23,4 +23,10 @@ make install dependencies
 
 ## Problem sheet API
 
-This will be a flask based API
+This is a flask absed API that can be run as follows:
+
+```sh
+make start_api
+```
+
+We use a `GET` request to download the files.
