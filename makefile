@@ -18,7 +18,7 @@ tests:
 
 start_api:
 	# Starts the api
-	python api.py
+	python API/api.py
 
 cleanup:
 	# Removes all zip files from the present directory
