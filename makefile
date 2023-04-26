@@ -12,9 +12,9 @@ install_dependencies:
 	# Install pip dependencies if not using conda env
 	python -m pip install -r libraries/requirements.txt
 
-run:
+tests:
 	# Run main file
-	python generate_sheets.py
+	python test/test.py
 
 start_api:
 	# Starts the api
