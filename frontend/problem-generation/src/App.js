@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 function App() {
   const [numberValue, setNumberValue] = useState('');
@@ -22,14 +21,12 @@ function App() {
     };
 
     const api_url = `http://127.0.0.1:5000/download?=n-problems=${data.number}&topic=${data.string}`
+
     console.log(api_url)
-    axios.get(api_url, data)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+
+    fetch(api_url)
+          .then(response => response.json())
+          .catch(error => console.error(error));
   }
 
   return (
