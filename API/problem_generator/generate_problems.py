@@ -15,12 +15,15 @@ model = "gpt-3.5-turbo"
 api_key = os.getenv("open_api_key")
 
 
-def generate_problem_sheet(num_problems: int, topic: str) -> None:
+def generate_problem_sheet(
+    num_problems: int, topic: str, difficulty_level: str = "hard"
+) -> None:
     """Generates a problem sheet with n problems about one topic
 
     Args:
         num_problems (int): Number of problems in the problem sheet
         topic (str): Name of the topic, e.g addition
+        difficulty_level (str): How hard the problems are
 
     Returns:
         None, saves files to a problem sheet directory.
@@ -52,7 +55,8 @@ def generate_problem_sheet(num_problems: int, topic: str) -> None:
             model=model, api_key=api_key, initial_message=initial_message
         )
         problem_sheet_prompt = f"""
-        Generate a problem sheet with {num_problems} questions about {topic}"""
+        Generate a problem sheet with {num_problems} questions about {topic}.
+        These problems should be of difficulty: {difficulty_level}"""
         question_response: Completion = helper.chat_to_gpt(problem_sheet_prompt)
         sheet_contents: str = helper.messages[-1].get("content", "")
 
