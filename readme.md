@@ -21,6 +21,10 @@ To set up the python libraries simply run the command:
 make install dependencies
 ```
 
+### General
+
+Ensure that you have an [OpenAI API](https://platform.openai.com/account/api-keys) key in an env file so that the API can run.
+
 
 ## Build project
 
