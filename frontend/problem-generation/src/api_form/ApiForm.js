@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import "./ApiForm.css";
 
 function ApiForm() {
-    const [numberValue, setNumberValue] = useState('');
+  const [numberValue, setNumberValue] = useState('');
   const [stringValue, setStringValue] = useState('');
+  const [showDiv, setShowDiv] = useState(false);
+
+  const handleSubmitPress = (event) => {
+    setShowDiv(true);
+  }
 
   const handleNumberChange = (event) => {
     setNumberValue(event.target.value);
@@ -55,7 +60,10 @@ function ApiForm() {
             <input type="text" value={stringValue} onChange={handleStringChange} />
           </label>
           <br />
-          <button type="submit">Submit</button>
+          <div>
+            <button onClick={handleSubmitPress} type="submit">Submit</button>
+            {showDiv && <div>Loading...</div>}
+          </div>
         </form>
       </div>
       
