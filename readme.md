@@ -18,7 +18,7 @@ source activate problem_sheet_generation
 To set up the python libraries simply run the command:
 
 ```sh
-make install dependencies
+make install_dependencies
 ```
 
 ### General
