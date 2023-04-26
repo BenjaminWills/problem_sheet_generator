@@ -62,3 +62,20 @@ button {
 button:hover {
   background-color: darkgreen;
 }
+
+input {
+  display: block;
+  width: 500px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0077cc;
+  box-shadow: 0 0 5px #0077cc;
+}
