@@ -25,6 +25,11 @@ make install dependencies
 
 Ensure that you have an [OpenAI API](https://platform.openai.com/account/api-keys) key in an env file so that the API can run.
 
+```txt
+# ./.env
+open_api_key = "<API KEY>"
+```
+
 
 ## Build project
 
