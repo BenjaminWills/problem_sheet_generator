@@ -1,6 +1,5 @@
 import os
 import shutil
-
 from typing import Dict
 
 GPT_message = Dict[str, str]

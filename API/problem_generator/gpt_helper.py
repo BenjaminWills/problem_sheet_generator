@@ -1,10 +1,8 @@
-import openai
-
-from openai import Completion
 from typing import Dict, List
 
-from problem_generator.utilities import make_gpt_message, GPT_message
-
+import openai
+from openai import Completion
+from problem_generator.utilities import GPT_message, make_gpt_message
 
 Errors = List[str]
 GPT_assistant_message = Dict[str, str]

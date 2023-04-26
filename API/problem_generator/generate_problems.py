@@ -1,14 +1,9 @@
 import os
 
 from dotenv import load_dotenv
-
-from problem_generator.gpt_helper import GPT_helper, Completion
-from problem_generator.utilities import (
-    make_gpt_message,
-    format_topic,
-    mkdir_if_not_exists,
-    GPT_message,
-)
+from problem_generator.gpt_helper import Completion, GPT_helper
+from problem_generator.utilities import (GPT_message, format_topic,
+                                         make_gpt_message, mkdir_if_not_exists)
 
 load_dotenv()
 
