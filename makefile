@@ -24,6 +24,13 @@ start_frontend:
 	# Starts the frontend
 	npm --prefix frontend/problem-generation start
 
+lint:
+	# Lint python files and imports
+	black .
+	isort .
+	# Lint all javascript files and fix most issues
+	./frontend/problem-generation/node_modules/.bin/eslint . --fix
+
 cleanup:
 	# Removes all zip files from the present directory
 	find . -name "*.zip" -type f -delete
