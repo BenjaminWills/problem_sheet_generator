@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from './navbar/Navbar'
 
 function App() {
   const [numberValue, setNumberValue] = useState('');
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <div>
+      <Navbar></Navbar>
       <form onSubmit={handleSubmit}>
         <label>
           Enter a number:
