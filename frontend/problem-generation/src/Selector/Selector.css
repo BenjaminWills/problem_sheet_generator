@@ -1,0 +1,31 @@
+.selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selector-circle {
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.selector-circle:last-child {
+  margin-right: 0;
+}
+
+.selector-circle.selected {
+  background-color: #000;
+}
+
+.circle-label {
+  font-size: 12px;
+  margin-top: 5px;
+}
