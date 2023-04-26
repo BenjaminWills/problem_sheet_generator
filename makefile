@@ -20,6 +20,10 @@ start_api:
 	# Starts the api
 	python API/api.py
 
+start_frontend:
+	# Starts the frontend
+	npm --prefix frontend/problem-generation start
+
 cleanup:
 	# Removes all zip files from the present directory
 	find . -name "*.zip" -type f -delete
