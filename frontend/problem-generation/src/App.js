@@ -25,8 +25,18 @@ function App() {
     console.log(api_url)
 
     fetch(api_url)
-          .then(response => response.json())
-          .catch(error => console.error(error));
+      .then(response => response.blob())
+      .then(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'file.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      })
+      .catch(error => console.error(error));
   }
 
   return (
