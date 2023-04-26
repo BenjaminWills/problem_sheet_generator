@@ -6,8 +6,8 @@ function App() {
   return (
     <div>
       <Navbar />
-      <br/>
-      <Selector/>
+      <br />
+      <Selector />
       <ApiForm />
     </div>
   );

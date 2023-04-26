@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import "./Selector.css";
+import React, { useState } from 'react';
+import './Selector.css';
 
-const Selector = () => {
+function Selector() {
   const [selected, setSelected] = useState('');
 
   const handleSelection = (label) => {
@@ -21,6 +21,6 @@ const Selector = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Selector;
