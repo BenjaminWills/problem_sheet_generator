@@ -2,8 +2,12 @@ import os
 
 from dotenv import load_dotenv
 from problem_generator.gpt_helper import Completion, GPT_helper
-from problem_generator.utilities import (GPT_message, format_topic,
-                                         make_gpt_message, mkdir_if_not_exists)
+from problem_generator.utilities import (
+    GPT_message,
+    format_topic,
+    make_gpt_message,
+    mkdir_if_not_exists,
+)
 
 load_dotenv()
 
@@ -26,6 +30,21 @@ def generate_problem_sheet(num_problems: int, topic: str) -> None:
         content="""
         You are a bot that generates Latex scripts about mathematical topics that are specified.
         Use Latex for any and all math notation. Where possible you will relate the problems to real life scenarios.
+
+        Here is an example of 5 problems on complex analysis:
+        1. Find the Laurent series expansion of $f(z) = \frac{1}{z(z-1)}$ centered at $z=0$ and determine its region of convergence.
+        2. Find the residue of $f(z) = \frac{\sin(z)}{z^2 - z - 6}$ at $z=3$ and $z=-2$.
+        3. Show that $f(z) = e^z$ is an entire function.
+        4. Determine the singularities and their types of $f(z) = \frac{\sin z}{z^2+1}$.
+        5. Compute $\oint_C \frac{e^z}{z(z-1)} \, dz$, where $C$ is the positively oriented circle with center at $z=1$ and radius 2.
+
+        And here are the example answers:
+        
+        1. The partial fraction decomposition of $f(z)$ is $\frac{1}{z(z-1)} = \frac{1}{z-1} - \frac{1}{z}$. Therefore, the Laurent series expansion of $f(z)$ centered at $z=0$ is given by $f(z) = -\frac{1}{z} + \frac{1}{z-1} = \sum_{n=-\infty}^{-1}\frac{(-1)^{n+1}}{z^{n+1}} + \sum_{n=0}^{\infty}\frac{1}{(z-1)^{n+1}}$. The region of convergence is the annulus $0 \lt \lvert z \rvert \lt 1$ and $\lvert z-1 \rvert \gt 1$.
+        2. We have $f(z) = \frac{\sin(z)}{(z-3)(z+2)}$, so the residue at $z=3$ is $\operatorname{Res}_{z=3} f(z) = \frac{\sin(3)}{3-(-2)} = \frac{\sin(3)}{5}$ and the residue at $z=-2$ is $\operatorname{Res}_{z=-2} f(z) = \frac{\sin(-2)}{(-2)-3} = -\frac{\sin(2)}{5}$.
+        3. $\frac{d}{dz}e^z = e^z$ so the derivative of $f(z)=e^z$ exists at every point in the complex plane. By extension, so do all of the higher order derivatives, and $f(z)$ is infinitely differentiable. Therefore, $f(z)$ is entire.
+        4. The denominator has roots at $\pm i$, so $f(z)$ has simple poles at those points. To determine the type, we need to evaluate $\lim_{z \to \pm i} (z \pm i)f(z)$. We have $(z+i)f(z) = \frac{\sin(z)(z+i)}{(z+i)(z-i)} = \frac{\sin(z)}{z-i}$, so $\lim_{z \to i} (z+i)f(z) = \sin(i)$. Similarly, $(z-i)f(z) = \frac{\sin(z)(z-i)}{(z-i)(z+i)} = \frac{\sin(z)}{z+i}$ and $\lim_{z \to -i} (z-i)f(z) = \sin(-i)$. Therefore, $f(z)$ has simple poles at $\pm i$ with residues $\sin(i)$ and $\sin(-i)$, respectively.
+        5. We can apply the residue theorem using the two poles of $f(z)$ at $z=0$ and $z=1$. The residues are $\operatorname{Res}_{z=0} f(z) = 1$ and $\operatorname{Res}_{z=1} f(z) = e$. Therefore, by the residue theorem, $\oint_C \frac{e^z}{z(z-1)} dz = 2\pi i (\operatorname{Res}_{z=0} f(z) + \operatorname{Res}_{z=1} f(z)) = 2\pi i(1+e)$.
         """,
     )
     try:
