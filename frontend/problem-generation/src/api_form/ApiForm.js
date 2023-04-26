@@ -26,13 +26,13 @@ function ApiForm() {
       string: stringValue,
     };
 
-    const formatted_string = data.string.replace(/ /g, '-');
+    const formattedString = data.string.replace(/ /g, '-');
 
-    const api_url = `http://127.0.0.1:5000/download?n-problems=${data.number}&topic=${formatted_string}`;
+    const apiUrl = `http://127.0.0.1:5000/download?n-problems=${data.number}&topic=${formattedString}`;
 
-    console.log(api_url);
+    console.log(apiUrl);
 
-    fetch(api_url)
+    fetch(apiUrl)
       .then((response) => response.blob())
       .then((blob) => {
         const url = URL.createObjectURL(blob);
