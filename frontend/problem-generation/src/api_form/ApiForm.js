@@ -62,7 +62,12 @@ function ApiForm() {
           <br />
           <div>
             <button onClick={handleSubmitPress} type="submit">Submit</button>
-            {showDiv && <div>Loading...</div>}
+            {showDiv && <div style={{
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              height: '100vh',
+                            }}>Loading...</div>}
           </div>
         </form>
       </div>
