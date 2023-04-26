@@ -42,20 +42,22 @@ function ApiForm() {
       .catch(error => console.error(error));
   }
   return (
-    
-    <form onSubmit={handleSubmit}>
-        <label className='label-box'>
-          How many problems would you like to generate?
-          <input type="number" value={numberValue} onChange={handleNumberChange} />
-        </label>
-        <br />
-        <label className='label-box'>
-          What topic should the sheets cover?
-          <input type="text" value={stringValue} onChange={handleStringChange} />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+    <div>
+      <br/>
+      <form onSubmit={handleSubmit}>
+          <label className='label-box'>
+            How many problems would you like to generate?
+            <input type="number" value={numberValue} onChange={handleNumberChange} />
+          </label>
+          <br />
+          <label className='label-box'>
+            What topic should the sheets cover?
+            <input type="text" value={stringValue} onChange={handleStringChange} />
+          </label>
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
       
   );
 }
