@@ -1,0 +1,64 @@
+.label-box {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 600px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.label-box:focus-within label {
+  color: #0084ff;
+}
+
+.label-box:focus-within {
+  outline: none;
+  border-color: #0084ff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 5px #0084ff;
+}
+
+.label-box label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #999;
+  transition: all 0.2s ease-out;
+  font-size: 1rem;
+}
+
+.label-box input:focus + label,
+.label-box input:not(:placeholder-shown) + label {
+  transform: translateY(-30%) scale(0.8);
+  color: #0084ff;
+}
+
+.label-box input:not(:focus):not(:placeholder-shown) + label {
+  transform: translateY(-30%) scale(0.8);
+  color: #ccc;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: forestgreen;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: darkgreen;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./ApiForm.css";
 
 function ApiForm() {
     const [numberValue, setNumberValue] = useState('');
@@ -20,7 +21,9 @@ function ApiForm() {
       string: stringValue
     };
 
-    const api_url = `http://127.0.0.1:5000/download?=n-problems=${data.number}&topic=${data.string}`
+    const formatted_string = data.string.replace(/ /g, "-")
+
+    const api_url = `http://127.0.0.1:5000/download?=n-problems=${data.number}&topic=${formatted_string}`
 
     console.log(api_url)
 
@@ -39,19 +42,21 @@ function ApiForm() {
       .catch(error => console.error(error));
   }
   return (
+    
     <form onSubmit={handleSubmit}>
-        <label>
-          Enter a number:
+        <label className='label-box'>
+          How many problems would you like to generate?
           <input type="number" value={numberValue} onChange={handleNumberChange} />
         </label>
         <br />
-        <label>
-          Enter a string:
+        <label className='label-box'>
+          What topic should the sheets cover?
           <input type="text" value={stringValue} onChange={handleStringChange} />
         </label>
         <br />
         <button type="submit">Submit</button>
       </form>
+      
   );
 }
 
