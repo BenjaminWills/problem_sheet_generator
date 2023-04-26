@@ -31,7 +31,7 @@ def download():
 
     zip_path = f"{topic}_problems"
 
-    zip_files(zip_path, dir_path)
+    zip_files(f"API/{zip_path}", dir_path)
 
     shutil.rmtree("problem_sheets")
     return send_file(
