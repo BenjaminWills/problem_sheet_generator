@@ -21,12 +21,17 @@ To set up the python libraries simply run the command:
 make install dependencies
 ```
 
-## Problem sheet API
 
-This is a flask absed API that can be run as follows:
+## Build project
+
+In one terminal run:
 
 ```sh
 make start_api
 ```
 
-We use a `GET` request to download the files.
+In another run:
+
+```sh
+make start_frontend
+```
