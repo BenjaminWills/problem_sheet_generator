@@ -1,6 +1,7 @@
 import shutil
 
 from flask import Flask, send_file, request
+from flask_cors import CORS
 
 
 from problem_generator.generate_problems import generate_problem_sheet
@@ -8,6 +9,8 @@ from problem_generator.utilities import zip_files, format_topic
 
 
 app = Flask(__name__)
+# Add cors so that fetch stops throwing errors
+CORS(app)
 
 
 @app.route("/")
