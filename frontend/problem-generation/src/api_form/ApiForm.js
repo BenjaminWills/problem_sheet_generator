@@ -28,7 +28,7 @@ function ApiForm() {
 
     const formatted_string = data.string.replace(/ /g, "-")
 
-    const api_url = `http://127.0.0.1:5000/download?=n-problems=${data.number}&topic=${formatted_string}`
+    const api_url = `http://127.0.0.1:5000/download?n-problems=${data.number}&topic=${formatted_string}`
 
     console.log(api_url)
 
