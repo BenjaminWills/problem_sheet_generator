@@ -6,10 +6,6 @@ function ApiForm() {
   const [stringValue, setStringValue] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmitPress = (event) => {
-    setShowDiv(true);
-  };
-
   const handleNumberChange = (event) => {
     setNumberValue(event.target.value);
   };
