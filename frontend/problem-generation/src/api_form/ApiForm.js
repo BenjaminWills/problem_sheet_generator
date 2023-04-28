@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
+import Selector from './Selector/Selector';
 import './ApiForm.css';
 
 function ApiForm() {
   const [numberValue, setNumberValue] = useState('');
   const [stringValue, setStringValue] = useState('');
   const [loading, setLoading] = useState(false);
+  const [buttonOutput, setButtonOutput] = useState('hard');
+  
+
+  const handleButtonClick = (output) => {
+    setButtonOutput(output);
+  }
 
   const handleNumberChange = (event) => {
     setNumberValue(event.target.value);
@@ -20,11 +27,12 @@ function ApiForm() {
     const data = {
       number: numberValue,
       string: stringValue,
+      difficulty: buttonOutput
     };
 
     const formattedString = data.string.replace(/ /g, '-');
 
-    const apiUrl = `http://127.0.0.1:5000/download?n-problems=${data.number}&topic=${formattedString}`;
+    const apiUrl = `http://127.0.0.1:5000/download?n-problems=${data.number}&topic=${formattedString}&difficulty=${buttonOutput}`;
 
     console.log(apiUrl);
     setLoading(true);
@@ -61,6 +69,8 @@ function ApiForm() {
           What topic should the sheets cover?
           <input type="text" value={stringValue} onChange={handleStringChange} />
         </label>
+        <br />
+        <Selector onClick={handleButtonClick} />
         <br />
         <div>
           <button type="submit">Submit</button>
