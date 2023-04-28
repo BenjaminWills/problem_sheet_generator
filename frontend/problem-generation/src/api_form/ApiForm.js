@@ -35,7 +35,8 @@ function ApiForm() {
     fetch(apiUrl)
       .then((response) => {
         setLoading(false);
-        return response.blob()})
+        return response.blob();
+      })
       .then((blob) => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -48,7 +49,8 @@ function ApiForm() {
       })
       .catch((error) => {
         setLoading(false);
-        console.error(error)});
+        console.error(error);
+      });
   };
   return (
     <div>
@@ -67,11 +69,14 @@ function ApiForm() {
         <div>
           <button type="submit">Submit</button>
           {loading && (
-            <div className="spinner" style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}></div>
+            <div
+              className="spinner"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            />
           )}
         </div>
       </form>
