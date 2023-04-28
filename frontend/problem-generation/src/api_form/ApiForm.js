@@ -4,7 +4,7 @@ import './ApiForm.css';
 function ApiForm() {
   const [numberValue, setNumberValue] = useState('');
   const [stringValue, setStringValue] = useState('');
-  const [showDiv, setShowDiv] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmitPress = (event) => {
     setShowDiv(true);
@@ -31,9 +31,11 @@ function ApiForm() {
     const apiUrl = `http://127.0.0.1:5000/download?n-problems=${data.number}&topic=${formattedString}`;
 
     console.log(apiUrl);
-
+    setLoading(true);
     fetch(apiUrl)
-      .then((response) => response.blob())
+      .then((response) => {
+        setLoading(false);
+        return response.blob()})
       .then((blob) => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -44,7 +46,9 @@ function ApiForm() {
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        setLoading(false);
+        console.error(error)});
   };
   return (
     <div>
@@ -61,17 +65,13 @@ function ApiForm() {
         </label>
         <br />
         <div>
-          <button onClick={handleSubmitPress} type="submit">Submit</button>
-          {showDiv && (
-            <div style={{
+          <button type="submit">Submit</button>
+          {loading && (
+            <div className="spinner" style={{
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              height: '100vh',
-            }}
-            >
-              Loading...
-            </div>
+            }}></div>
           )}
         </div>
       </form>
