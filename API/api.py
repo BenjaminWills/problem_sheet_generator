@@ -19,10 +19,11 @@ def hello_world():
 def download():
     n_problems = request.args.get("n-problems", 5)
     topic = request.args.get("topic", "mathematics")
+    difficulty = request.args.get("difficulty", "intermediate")
 
     formatted_topic = format_topic(topic)
 
-    generate_problem_sheet(n_problems, formatted_topic)
+    generate_problem_sheet(n_problems, formatted_topic, difficulty)
 
     dir_path = "problem_sheets"
 
