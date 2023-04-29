@@ -1,21 +1,24 @@
-import ProblemGenerationPage from './pages/ProblemGenerationPage';
+import { BrowserRouter as Router, Routes, Route }
+  from 'react-router-dom';
+
+// Import components
 import Navbar from './components/Navbar/Navbar';
-import { BrowserRouter as Router, Routes, Route}
-    from 'react-router-dom';
+import ProblemGenerationPage from './pages/ProblemGenerationPage';
+import ContactMe from './components/ContactMe/ContactMe';
 
 function App() {
   return (
     <Router>
-    <Navbar />
-    <Routes>
-        <Route exact path='/' element={<ProblemGenerationPage />} />
-        <Route path='/problem-generator' element={<ProblemGenerationPage/>} />
-        <Route path='/contact' element={<ProblemGenerationPage/>} />
-        <Route path='/blogs' element={<ProblemGenerationPage/>} />
-        <Route path='/sign-up' element={<ProblemGenerationPage/>} />
-    </Routes>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<ProblemGenerationPage />} />
+        <Route path="/problem-generator" element={<ProblemGenerationPage />} />
+        <Route path="/contact-me" element={<ContactMe />} />
+        <Route path="/blogs" element={<ProblemGenerationPage />} />
+        <Route path="/sign-up" element={<ProblemGenerationPage />} />
+      </Routes>
     </Router>
-);
+  );
 }
 
 export default App;

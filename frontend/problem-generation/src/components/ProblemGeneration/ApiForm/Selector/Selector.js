@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Selector.css';
 
-function Selector({onClick}) {
+function Selector({ onClick }) {
   const [selected, setSelected] = useState('');
 
   const handleSelection = (label) => {

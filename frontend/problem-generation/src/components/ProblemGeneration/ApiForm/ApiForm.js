@@ -4,10 +4,10 @@ import './ApiForm.css';
 function ApiForm() {
   const [numberOfProblems, setProblemNumberValue] = useState('5');
   const [topicValue, setTopicValue] = useState('Addition');
-  const [difficultyValue,setDifficultyValue] = useState('hard');
-  const [APIKey,setAPIKey] = useState('');
+  const [difficultyValue, setDifficultyValue] = useState('hard');
+  const [APIKey, setAPIKey] = useState('');
   const [loading, setLoading] = useState(false);
-  
+
   const handleAPIKey = (event) => {
     setAPIKey(event.target.value);
   };
@@ -28,19 +28,19 @@ function ApiForm() {
     event.preventDefault();
 
     const data = {
-      numberOfProblems: numberOfProblems,
+      numberOfProblems,
       topic: topicValue,
       difficulty: difficultyValue,
-      ApiKey: APIKey
+      ApiKey: APIKey,
     };
 
     const formattedTopic = data.topic.replace(/ /g, '-');
     const formattedDifficulty = data.difficulty.replace(/ /g, '-');
 
     const apiUrl = `http://127.0.0.1:5000/download?n-problems=${data.numberOfProblems}&topic=${formattedTopic}&difficulty=${formattedDifficulty}&api-key=${data.ApiKey}`;
-    console.log(`difficulty: ${data.difficulty}`)
-    console.log(`number of problems: ${data.numberOfProblems}`)
-    console.log(`topic: ${data.topic}`)
+    console.log(`difficulty: ${data.difficulty}`);
+    console.log(`number of problems: ${data.numberOfProblems}`);
+    console.log(`topic: ${data.topic}`);
     console.log(apiUrl);
     setLoading(true);
     fetch(apiUrl)
@@ -68,10 +68,10 @@ function ApiForm() {
       <br />
       <form onSubmit={handleSubmit}>
         <label className="label-box">
-          API key: 
+          API key:
           <input type="number" value={APIKey} onChange={handleAPIKey} />
         </label>
-        <br/>
+        <br />
         <label className="label-box">
           How many problems would you like to generate?
           <input type="number" value={numberOfProblems} onChange={handleProblemNumberChange} />

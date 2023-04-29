@@ -3,12 +3,8 @@ import shutil
 from flask import Flask, request, send_file
 from flask_cors import CORS
 from problem_generator.generate_problems import generate_problem_sheet
-from problem_generator.utilities import (
-    format_topic,
-    zip_files,
-    validate_api_key,
-    TRUE_API_KEY,
-)
+from problem_generator.utilities import (TRUE_API_KEY, format_topic,
+                                         validate_api_key, zip_files)
 
 app = Flask(__name__)
 # Add cors so that fetch stops throwing errors

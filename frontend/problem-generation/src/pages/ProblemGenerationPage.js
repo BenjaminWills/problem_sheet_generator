@@ -1,11 +1,11 @@
-import ProblemGeneration from "../components/ProblemGeneration/ProblemGeneration";
+import ProblemGeneration from '../components/ProblemGeneration/ProblemGeneration';
 
-function ProblemGenerationPage(){
-    return (
-        <div>
-            <ProblemGeneration/>
-        </div>
-    )
+function ProblemGenerationPage() {
+  return (
+    <div>
+      <ProblemGeneration />
+    </div>
+  );
 }
 
 export default ProblemGenerationPage;
