@@ -29,7 +29,7 @@ def make_gpt_message(role: str, content: str) -> GPT_message:
 
 
 def format_topic(topic: str) -> str:
-    """Replaces spaces with underscores in string
+    """Replaces spaces and hyphens with underscores in string
 
     Parameters
     ----------
@@ -38,9 +38,9 @@ def format_topic(topic: str) -> str:
     Returns
     -------
     str
-        String with spaces replaced with underscores
+        String with spaces and hyphens replaced with underscores
     """
-    return topic.replace(" ", "_")
+    return topic.replace(" ", "_").replace("-", "_")
 
 
 def mkdir_if_not_exists(dir_path: str) -> None:

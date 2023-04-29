@@ -1,39 +1,49 @@
 import React, { useState } from 'react';
+import Selector from './Selector/Selector';
 import './ApiForm.css';
 
 function ApiForm() {
-  const [numberValue, setNumberValue] = useState('');
-  const [stringValue, setStringValue] = useState('');
-  const [showDiv, setShowDiv] = useState(false);
+  const [numberOfProblems, setProblemNumberValue] = useState('');
+  const [topicValue, setTopicValue] = useState('');
+  const [difficultyValue,setDifficultyValue] = useState('hard');
+  const [loading, setLoading] = useState(false);
+  
 
-  const handleSubmitPress = (event) => {
-    setShowDiv(true);
+  const handleDifficultyChange = (event) => {
+    setDifficultyValue(event.target.value);
   };
 
-  const handleNumberChange = (event) => {
-    setNumberValue(event.target.value);
+  const handleProblemNumberChange = (event) => {
+    setProblemNumberValue(event.target.value);
   };
 
-  const handleStringChange = (event) => {
-    setStringValue(event.target.value);
+  const handleTopicChange = (event) => {
+    setTopicValue(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = {
-      number: numberValue,
-      string: stringValue,
+      numberOfProblems: numberOfProblems,
+      topic: topicValue,
+      difficulty: difficultyValue
     };
 
-    const formattedString = data.string.replace(/ /g, '-');
+    const formattedTopic = data.topic.replace(/ /g, '-');
+    const formattedDifficulty = data.difficulty.replace(/ /g, '-');
 
-    const apiUrl = `http://127.0.0.1:5000/download?n-problems=${data.number}&topic=${formattedString}`;
-
+    const apiUrl = `http://127.0.0.1:5000/download?n-problems=${data.numberOfProblems}&topic=${formattedTopic}&difficulty=${formattedDifficulty}`;
+    console.log(`difficulty: ${data.difficulty}`)
+    console.log(`number of problems: ${data.numberOfProblems}`)
+    console.log(`topic: ${data.topic}`)
     console.log(apiUrl);
-
+    setLoading(true);
     fetch(apiUrl)
-      .then((response) => response.blob())
+      .then((response) => {
+        setLoading(false);
+        return response.blob();
+      })
       .then((blob) => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -44,7 +54,10 @@ function ApiForm() {
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        setLoading(false);
+        console.error(error);
+      });
   };
   return (
     <div>
@@ -52,26 +65,30 @@ function ApiForm() {
       <form onSubmit={handleSubmit}>
         <label className="label-box">
           How many problems would you like to generate?
-          <input type="number" value={numberValue} onChange={handleNumberChange} />
+          <input type="number" value={numberOfProblems} onChange={handleProblemNumberChange} />
         </label>
         <br />
         <label className="label-box">
           What topic should the sheets cover?
-          <input type="text" value={stringValue} onChange={handleStringChange} />
+          <input type="text" value={topicValue} onChange={handleTopicChange} />
+        </label>
+        <br />
+        <label className="label-box">
+          How difficult would you like the sheet to be?
+          <input type="text" value={difficultyValue} onChange={handleDifficultyChange} />
         </label>
         <br />
         <div>
-          <button onClick={handleSubmitPress} type="submit">Submit</button>
-          {showDiv && (
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '100vh',
-            }}
-            >
-              Loading...
-            </div>
+          <button type="submit">Submit</button>
+          {loading && (
+            <div
+              className="spinner"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            />
           )}
         </div>
       </form>
