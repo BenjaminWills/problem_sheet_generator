@@ -3,37 +3,40 @@ import Selector from './Selector/Selector';
 import './ApiForm.css';
 
 function ApiForm() {
-  const [numberValue, setNumberValue] = useState('');
-  const [stringValue, setStringValue] = useState('');
+  const [numberOfProblems, setProblemNumberValue] = useState('');
+  const [topicValue, setTopicValue] = useState('');
+  const [difficultyValue,setDifficultyValue] = useState('hard');
   const [loading, setLoading] = useState(false);
-  const [buttonOutput, setButtonOutput] = useState('hard');
   
 
-  const handleButtonClick = (output) => {
-    setButtonOutput(output);
-  }
-
-  const handleNumberChange = (event) => {
-    setNumberValue(event.target.value);
+  const handleDifficultyChange = (event) => {
+    setDifficultyValue(event.target.value);
   };
 
-  const handleStringChange = (event) => {
-    setStringValue(event.target.value);
+  const handleProblemNumberChange = (event) => {
+    setProblemNumberValue(event.target.value);
+  };
+
+  const handleTopicChange = (event) => {
+    setTopicValue(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = {
-      number: numberValue,
-      string: stringValue,
-      difficulty: buttonOutput
+      numberOfProblems: numberOfProblems,
+      topic: topicValue,
+      difficulty: difficultyValue
     };
 
-    const formattedString = data.string.replace(/ /g, '-');
+    const formattedTopic = data.topic.replace(/ /g, '-');
+    const formattedDifficulty = data.difficulty.replace(/ /g, '-');
 
-    const apiUrl = `http://127.0.0.1:5000/download?n-problems=${data.number}&topic=${formattedString}&difficulty=${buttonOutput}`;
-
+    const apiUrl = `http://127.0.0.1:5000/download?n-problems=${data.numberOfProblems}&topic=${formattedTopic}&difficulty=${formattedDifficulty}`;
+    console.log(`difficulty: ${data.difficulty}`)
+    console.log(`number of problems: ${data.numberOfProblems}`)
+    console.log(`topic: ${data.topic}`)
     console.log(apiUrl);
     setLoading(true);
     fetch(apiUrl)
@@ -62,15 +65,18 @@ function ApiForm() {
       <form onSubmit={handleSubmit}>
         <label className="label-box">
           How many problems would you like to generate?
-          <input type="number" value={numberValue} onChange={handleNumberChange} />
+          <input type="number" value={numberOfProblems} onChange={handleProblemNumberChange} />
         </label>
         <br />
         <label className="label-box">
           What topic should the sheets cover?
-          <input type="text" value={stringValue} onChange={handleStringChange} />
+          <input type="text" value={topicValue} onChange={handleTopicChange} />
         </label>
         <br />
-        <Selector onClick={handleButtonClick} />
+        <label className="label-box">
+          How difficult would you like the sheet to be?
+          <input type="text" value={difficultyValue} onChange={handleDifficultyChange} />
+        </label>
         <br />
         <div>
           <button type="submit">Submit</button>
