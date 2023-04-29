@@ -4,6 +4,11 @@ services:
     build: ./API
     ports:
       - "5001:5001"
+    
+  postgres_api:
+    build: ./database_API
+    ports:
+      - "5002:5002"
 
   frontend:
     build: ./frontend/problem-generation
