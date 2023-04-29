@@ -3,8 +3,12 @@ import shutil
 from flask import Flask, request, send_file
 from flask_cors import CORS
 from problem_generator.generate_problems import generate_problem_sheet
-from problem_generator.utilities import (TRUE_API_KEY, format_topic,
-                                         validate_api_key, zip_files)
+from problem_generator.utilities import (
+    TRUE_API_KEY,
+    format_topic,
+    validate_api_key,
+    zip_files,
+)
 
 app = Flask(__name__)
 # Add cors so that fetch stops throwing errors
@@ -32,7 +36,7 @@ def download():
 
         zip_path = f"{topic}_problems"
 
-        zip_files(f"API/{zip_path}", dir_path)
+        zip_files(f"{zip_path}", dir_path)
 
         shutil.rmtree("problem_sheets")
         return (
@@ -47,4 +51,4 @@ def download():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001, host="0.0.0.0")
