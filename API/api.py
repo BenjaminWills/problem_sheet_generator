@@ -3,7 +3,12 @@ import shutil
 from flask import Flask, request, send_file
 from flask_cors import CORS
 from problem_generator.generate_problems import generate_problem_sheet
-from problem_generator.utilities import format_topic, zip_files
+from problem_generator.utilities import (
+    format_topic,
+    zip_files,
+    validate_api_key,
+    TRUE_API_KEY,
+)
 
 app = Flask(__name__)
 # Add cors so that fetch stops throwing errors
@@ -20,23 +25,29 @@ def download():
     n_problems = request.args.get("n-problems", 5)
     topic = request.args.get("topic", "mathematics")
     difficulty = request.args.get("difficulty", "intermediate")
+    api_key = int(request.args.get("api-key", 0))
+    if validate_api_key(inputted_key=api_key):
+        formatted_topic = format_topic(topic)
+        formatted_difficulty = format_topic(difficulty)
 
-    formatted_topic = format_topic(topic)
-    formatted_difficulty = format_topic(difficulty)
+        generate_problem_sheet(n_problems, formatted_topic, formatted_difficulty)
 
-    generate_problem_sheet(n_problems, formatted_topic, formatted_difficulty)
+        dir_path = "problem_sheets"
 
-    dir_path = "problem_sheets"
+        zip_path = f"{topic}_problems"
 
-    zip_path = f"{topic}_problems"
+        zip_files(f"API/{zip_path}", dir_path)
 
-    zip_files(f"API/{zip_path}", dir_path)
-
-    shutil.rmtree("problem_sheets")
-    return send_file(
-        f"{zip_path}.zip",
-        as_attachment=True,
-    )
+        shutil.rmtree("problem_sheets")
+        return (
+            send_file(
+                f"{zip_path}.zip",
+                as_attachment=True,
+            ),
+            200,
+        )
+    else:
+        return "Access denied", 400
 
 
 if __name__ == "__main__":
