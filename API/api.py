@@ -22,8 +22,9 @@ def download():
     difficulty = request.args.get("difficulty", "intermediate")
 
     formatted_topic = format_topic(topic)
+    formatted_difficulty = format_topic(difficulty)
 
-    generate_problem_sheet(n_problems, formatted_topic, difficulty)
+    generate_problem_sheet(n_problems, formatted_topic, formatted_difficulty)
 
     dir_path = "problem_sheets"
 
