@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   height: 80vh; /* set the height of the parent div */
+  padding-left: 5%;
 }
 
 .icon {
@@ -12,7 +13,6 @@
   align-items: center;
   justify-content: center;
   margin: 10px;
-  text-align: left;
   font-size: 100px;
 }
 
