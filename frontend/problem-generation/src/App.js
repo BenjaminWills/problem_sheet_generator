@@ -1,12 +1,9 @@
-import Navbar from './navbar/Navbar';
-import ApiForm from './api_form/ApiForm';
+import ProblemGeneration from './ProblemGeneration/ProblemGeneration';
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <br />
-      <ApiForm />
+      <ProblemGeneration/>
     </div>
   );
 }

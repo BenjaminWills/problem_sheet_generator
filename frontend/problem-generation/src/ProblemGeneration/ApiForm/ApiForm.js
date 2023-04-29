@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import Selector from './Selector/Selector';
 import './ApiForm.css';
 
 function ApiForm() {
-  const [numberOfProblems, setProblemNumberValue] = useState('');
-  const [topicValue, setTopicValue] = useState('');
+  const [numberOfProblems, setProblemNumberValue] = useState('5');
+  const [topicValue, setTopicValue] = useState('Addition');
   const [difficultyValue,setDifficultyValue] = useState('hard');
   const [loading, setLoading] = useState(false);
   
