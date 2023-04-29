@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Footer/>
+      <Footer />
       <Routes>
         <Route exact path="/" element={<ProblemGenerationPage />} />
         <Route path="/problem-generator" element={<ProblemGenerationPage />} />

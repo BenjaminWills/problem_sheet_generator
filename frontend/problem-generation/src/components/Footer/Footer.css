@@ -22,3 +22,13 @@
   font-size: 14px;
   color: #999999;
 }
+
+.icon-container {
+  display: flex;
+  justify-content: center; /* center the icons horizontally */
+  align-items: center; /* center the icons vertically */
+}
+
+.icon {
+  font-size: 30px;
+}

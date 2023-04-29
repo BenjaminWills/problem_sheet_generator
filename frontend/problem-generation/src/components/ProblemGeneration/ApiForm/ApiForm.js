@@ -62,10 +62,10 @@ function ApiForm() {
         setLoading(false);
         console.error(error);
       });
-      // Cleanup zip files remaining in the directory
-      const cleanupURL = "http://127.0.0.1:5001/cleanup"
-      fetch(cleanupURL)
-      .catch((error) => console.log(error))
+    // Cleanup zip files remaining in the directory
+    const cleanupURL = 'http://127.0.0.1:5001/cleanup';
+    fetch(cleanupURL)
+      .catch((error) => console.log(error));
   };
   return (
     <div>
