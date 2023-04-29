@@ -9,7 +9,7 @@ load_dotenv
 GPT_message = Dict[str, str]
 API_KEY = int
 
-TRUE_API_KEY = int(os.getenv("problem_sheet_api_key", "key"))
+TRUE_API_KEY = int(os.getenv("problem_sheet_api_key", 1))
 
 
 def make_gpt_message(role: str, content: str) -> GPT_message:
