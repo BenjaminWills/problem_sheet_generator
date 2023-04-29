@@ -15,3 +15,7 @@
   text-align: left;
   font-size: 100px;
 }
+
+.contact-icon:hover {
+  color: forestgreen;
+}
