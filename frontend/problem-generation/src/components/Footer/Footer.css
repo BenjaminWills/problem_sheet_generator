@@ -14,6 +14,7 @@
   justify-content: space-between;
   align-items: center;
   width: 90%;
+  max-height: 10px;
   max-width: 1200px;
   margin: 0 auto;
 }
