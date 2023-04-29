@@ -7,7 +7,6 @@ from typing import Tuple, List
 
 from problem_generator.generate_problems import generate_problem_sheet
 from problem_generator.utilities import (
-    TRUE_API_KEY,
     format_topic,
     validate_api_key,
     zip_files,
@@ -36,7 +35,7 @@ def download_problemsheet() -> Tuple[int]:
     Returns
     -------
     Tuple
-        A response code.
+        A response code
     """
     try:
         n_problems: int = request.args.get("n-problems", 5)
@@ -87,10 +86,10 @@ def cleanup() -> Tuple[int]:
             if file.endswith(".zip"):
                 zip_path: str = os.path.join(pwd, file)
                 os.remove(zip_path)
-        return "Success", 200
+        return ("Success", 200)
     except Exception as e:
         print(e)
-        return "Access denied", 400
+        return ("Access denied", 400)
 
 
 if __name__ == "__main__":
