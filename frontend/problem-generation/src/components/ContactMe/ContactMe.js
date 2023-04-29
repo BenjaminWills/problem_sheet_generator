@@ -9,13 +9,13 @@ function ContactMe() {
   return (
     <div className="icon-container">
         <div className="icon">
-            <a href='https://github.com'><FontAwesomeIcon icon={faGithub} /></a>
+            <a href='https://github.com/BenjaminWills'><FontAwesomeIcon icon={faGithub} /></a>
         </div>
         <div className="icon">
-            <a href="https://linkedin.com"><FontAwesomeIcon icon={faLinkedin} /></a>
+            <a href="https://www.linkedin.com/in/benjamin-wills-b22887220/"><FontAwesomeIcon icon={faLinkedin} /></a>
         </div>
         <div className="icon">
-            <a href="https://instagram.com"><FontAwesomeIcon icon={faInstagram} /></a>
+            <a href="https://www.instagram.com/ben_wills123/?hl=en-gb"><FontAwesomeIcon icon={faInstagram} /></a>
         </div>
         <div className="icon">
             <a href="https://twitter.com"><FontAwesomeIcon icon={faTwitter} /></a>
