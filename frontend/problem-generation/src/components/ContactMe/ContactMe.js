@@ -3,7 +3,7 @@ import React from 'react';
 import './ContactMe.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faGithub, faTwitter, faInstagram, faLinkedin,
+  faGithub,faLinkedin,
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,9 +23,6 @@ function ContactMe() {
         </div>
         <div className="icon">
           <a href="https://www.linkedin.com/in/benjamin-wills-b22887220/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} style={{ color: '#0077b5' }} className="contact-icon" /></a>
-        </div>
-        <div className="icon">
-          <a href="https://twitter.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} style={{ color: '#1DA1F2' }} className="contact-icon" /></a>
         </div>
         <div className="icon">
           <a href="mailto:benjaminwills057@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{ color: 'black' }} className="contact-icon" /></a>

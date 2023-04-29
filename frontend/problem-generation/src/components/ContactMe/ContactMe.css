@@ -1,6 +1,6 @@
 .icon-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   height: 80vh; /* set the height of the parent div */
@@ -9,7 +9,7 @@
 
 .icon {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   margin: 10px;
