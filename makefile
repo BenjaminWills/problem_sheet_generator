@@ -2,6 +2,7 @@ update_requirements:
 	# Save conda recipie and requirements for non conda uses
 	mkdir -p libraries
 	pip freeze > libraries/requirements.txt
+	pip freeze > API/requirements.txt
 	conda env export > libraries/conda_environment.yml
 
 create_environment:
@@ -34,3 +35,7 @@ lint:
 cleanup:
 	# Removes all zip files from the present directory
 	find . -name "*.zip" -type f -delete
+
+build:
+	# Builds the docker containers that host the API and the frontend
+	docker compose up -d
