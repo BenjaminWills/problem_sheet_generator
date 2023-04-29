@@ -31,7 +31,9 @@ open_api_key = "<API KEY>"
 ```
 
 
-## Build project
+## Build project locally
+
+### Non docker users
 
 In one terminal run:
 
@@ -44,3 +46,13 @@ In another run:
 ```sh
 make start_frontend
 ```
+
+### Docker users
+
+Run the following command from the root directory to build the project:
+
+```sh
+make local_build
+```
+
+Then head to http://localhost:3000/ to see the website. The api is hosted on http://localhost:5001/ .
