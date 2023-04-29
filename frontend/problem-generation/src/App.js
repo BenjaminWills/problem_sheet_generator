@@ -16,8 +16,6 @@ function App() {
         <Route exact path="/" element={<ProblemGenerationPage />} />
         <Route path="/problem-generator" element={<ProblemGenerationPage />} />
         <Route path="/contact-me" element={<ContactMe />} />
-        <Route path="/blogs" element={<ProblemGenerationPage />} />
-        <Route path="/sign-up" element={<ProblemGenerationPage />} />
       </Routes>
     </Router>
   );
