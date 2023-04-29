@@ -28,6 +28,7 @@ Ensure that you have an [OpenAI API](https://platform.openai.com/account/api-key
 ```txt
 # ./.env
 open_api_key = "<API KEY>"
+problem_sheet_api_key = 123456789
 ```
 
 
