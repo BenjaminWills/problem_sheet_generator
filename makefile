@@ -36,6 +36,10 @@ cleanup:
 	# Removes all zip files from the present directory
 	find . -name "*.zip" -type f -delete
 
-build:
+local_build:
 	# Builds the docker containers that host the API and the frontend
 	docker compose up -d
+
+local_destroy:
+	# Halts services
+	docker compose down

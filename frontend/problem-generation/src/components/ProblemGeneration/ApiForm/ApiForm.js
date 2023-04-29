@@ -37,7 +37,7 @@ function ApiForm() {
     const formattedTopic = data.topic.replace(/ /g, '-');
     const formattedDifficulty = data.difficulty.replace(/ /g, '-');
 
-    const apiUrl = `http://127.0.0.1:5000/download?n-problems=${data.numberOfProblems}&topic=${formattedTopic}&difficulty=${formattedDifficulty}&api-key=${data.ApiKey}`;
+    const apiUrl = `http://127.0.0.1:5001/download?n-problems=${data.numberOfProblems}&topic=${formattedTopic}&difficulty=${formattedDifficulty}&api-key=${data.ApiKey}`;
     console.log(`difficulty: ${data.difficulty}`);
     console.log(`number of problems: ${data.numberOfProblems}`);
     console.log(`topic: ${data.topic}`);
