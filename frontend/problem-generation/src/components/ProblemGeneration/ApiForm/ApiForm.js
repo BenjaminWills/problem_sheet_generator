@@ -36,7 +36,7 @@ function ApiForm() {
 
     const formattedTopic = data.topic.replace(/ /g, '-');
     const formattedDifficulty = data.difficulty.replace(/ /g, '-');
-
+    // Send the get request
     const apiUrl = `http://127.0.0.1:5001/download?n-problems=${data.numberOfProblems}&topic=${formattedTopic}&difficulty=${formattedDifficulty}&api-key=${data.ApiKey}`;
     console.log(`difficulty: ${data.difficulty}`);
     console.log(`number of problems: ${data.numberOfProblems}`);
@@ -62,6 +62,10 @@ function ApiForm() {
         setLoading(false);
         console.error(error);
       });
+      // Cleanup zip files remaining in the directory
+      const cleanupURL = "http://127.0.0.1:5001/cleanup"
+      fetch(cleanupURL)
+      .catch((error) => console.log(error))
   };
   return (
     <div>

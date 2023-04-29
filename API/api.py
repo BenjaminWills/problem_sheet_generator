@@ -1,7 +1,10 @@
 import shutil
+import os
 
 from flask import Flask, request, send_file
 from flask_cors import CORS
+from typing import Tuple, List
+
 from problem_generator.generate_problems import generate_problem_sheet
 from problem_generator.utilities import (
     TRUE_API_KEY,
@@ -21,32 +24,72 @@ def hello_world():
 
 
 @app.route("/download")
-def download():
-    n_problems = request.args.get("n-problems", 5)
-    topic = request.args.get("topic", "mathematics")
-    difficulty = request.args.get("difficulty", "intermediate")
-    api_key = int(request.args.get("api-key", 0))
-    if validate_api_key(inputted_key=api_key):
-        formatted_topic = format_topic(topic)
-        formatted_difficulty = format_topic(difficulty)
+def download_problemsheet() -> Tuple[int]:
+    """Downloads the problem sheet specified in the url:
 
-        generate_problem_sheet(n_problems, formatted_topic, formatted_difficulty)
+    args:
+        n_problems: Number of problems to generate
+        topic: The topic that the problems revolve around
+        difficulty: The relative difficulty of the problems
+        api-key: The API key
 
-        dir_path = "problem_sheets"
+    Returns
+    -------
+    Tuple
+        A response code.
+    """
+    try:
+        n_problems: int = request.args.get("n-problems", 5)
+        topic: str = request.args.get("topic", "mathematics")
+        difficulty: str = request.args.get("difficulty", "intermediate")
 
-        zip_path = f"{topic}_problems"
+        api_key = int(request.args.get("api-key", 0))
 
-        zip_files(f"{zip_path}", dir_path)
+        if validate_api_key(inputted_key=api_key):
+            formatted_topic: str = format_topic(topic)
+            formatted_difficulty: str = format_topic(difficulty)
 
-        shutil.rmtree("problem_sheets")
-        return (
-            send_file(
-                f"{zip_path}.zip",
-                as_attachment=True,
-            ),
-            200,
-        )
-    else:
+            generate_problem_sheet(n_problems, formatted_topic, formatted_difficulty)
+
+            dir_path = "problem_sheets"
+
+            zip_path = f"{topic}_problems"
+
+            zip_files(f"{zip_path}", dir_path)
+
+            shutil.rmtree("problem_sheets")
+            return (
+                send_file(
+                    f"{zip_path}.zip",
+                    as_attachment=True,
+                ),
+                200,
+            )
+        else:
+            return ("Access denied", 400)
+    except Exception as e:
+        return ("Access denied", 400)
+
+
+@app.route("/cleanup")
+def cleanup() -> Tuple[int]:
+    """Removes all files with ".zip" extension.
+
+    Returns
+    -------
+    Tuple[int]
+        Response code
+    """
+    try:
+        pwd: str = os.getcwd()
+        files: List[str] = os.listdir(pwd)
+        for file in files:
+            if file.endswith(".zip"):
+                zip_path: str = os.path.join(pwd, file)
+                os.remove(zip_path)
+        return "Success", 200
+    except Exception as e:
+        print(e)
         return "Access denied", 400
 
 
