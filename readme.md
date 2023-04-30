@@ -26,7 +26,7 @@ make install_dependencies
 Ensure that you have an [OpenAI API](https://platform.openai.com/account/api-keys) key in an env file so that the API can run.
 
 ```txt
-# ./.env
+# ./API/.env
 open_api_key = "<API KEY>"
 problem_sheet_api_key = 123456789
 ```
