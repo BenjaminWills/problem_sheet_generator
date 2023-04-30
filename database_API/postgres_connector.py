@@ -29,8 +29,7 @@ class postgres_wrapper:
         try:
             with self.engine.connect() as conn:
                 results = conn.execute(text(query))
-                response: tuple = results.fetchall()
                 conn.commit()
-            return response
+            return None
         except Exception as e:
             print(e)
