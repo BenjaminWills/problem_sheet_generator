@@ -40,7 +40,7 @@ def log_transaction() -> tuple:
         VALUES ('{topic}', {n_problems}, '{difficulty}');
         """
         response = wrapper.query(query)
-        return "Success", 200
+        return {"response": query, "error code": 200}
     except Exception as e:
         print(e)
         return 400
