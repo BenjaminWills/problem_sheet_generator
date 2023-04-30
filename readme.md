@@ -48,6 +48,8 @@ In another run:
 make start_frontend
 ```
 
+Then create the postgres database and initialise it with the file in the database directory.
+
 ### Docker users
 
 Run the following command from the root directory to build the project:
@@ -56,4 +58,10 @@ Run the following command from the root directory to build the project:
 make local_build
 ```
 
-Then head to http://localhost:3000/ to see the website. The api is hosted on http://localhost:5001/ .
+Then head to http://localhost:3000/ to see the website. The problem sheet api is hosted on http://localhost:5001/, the transaction database api is hosted on http://localhost:5002/. To access the postgres database in the docker daemon we write:
+
+```sh
+psql postgres://root:admin@localhost:5432/transactions
+```
+
+Then we can query the database as we wish. Alternatively we could use the SQLWrapper to query the database.
