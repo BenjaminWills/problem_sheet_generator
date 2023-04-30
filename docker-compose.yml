@@ -4,18 +4,26 @@ services:
     build: ./API
     ports:
       - "5001:5001"
+    
+  postgres_api:
+    build: ./database_API
+    ports:
+      - "5002:5002"
+
   frontend:
     build: ./frontend/problem-generation
     ports:
       - "3000:3000"
+
+  # postgres://root:admin@localhost:5432/transactions is the connection string
   transaction_db:
     image: postgres:latest
     restart: always
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: admin
-      POSTGRES_DB: mydb
+      POSTGRES_DB: transactions
     ports:
       - "5432:5432"
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
