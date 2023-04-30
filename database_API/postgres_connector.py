@@ -25,11 +25,11 @@ class postgres_wrapper:
         except Exception as e:
             raise e
 
-    def query(self, query: str) -> None:
+    def query(self, query: str) -> str:
         try:
             with self.engine.connect() as conn:
                 results = conn.execute(text(query))
                 conn.commit()
-            return None
+            return query
         except Exception as e:
             print(e)
