@@ -25,7 +25,7 @@ class postgres_wrapper:
         except Exception as e:
             raise e
 
-    def query(self, query: str) -> tuple:
+    def query(self, query: str) -> None:
         try:
             with self.engine.connect() as conn:
                 results = conn.execute(text(query))
