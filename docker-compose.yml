@@ -2,18 +2,27 @@ version: "3.9"
 services:
   problem_sheet_api:
     build: ./API
+    image: ${ECR_PATH}:ps_api_latest
     ports:
       - "5001:5001"
+    env_file:
+      - ./.env
     
   postgres_api:
     build: ./database_API
+    image: ${ECR_PATH}:postgres_api_latest
     ports:
       - "5002:5002"
+    env_file:
+      - ./.env
 
   frontend:
     build: ./frontend/problem-generation
+    image: ${ECR_PATH}:pg_frontend_latest
     ports:
       - "3000:3000"
+    env_file:
+      - ./.env
 
   # postgres://root:admin@localhost:5432/transactions is the connection string
   transaction_db:
