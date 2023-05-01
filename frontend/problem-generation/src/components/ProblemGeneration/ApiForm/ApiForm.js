@@ -64,9 +64,9 @@ function ApiForm() {
       });
 
     // Update transactions database
-    const transactionAPIURL = `http://127.0.0.1:5002/log-transaction?n-problems=${data.numberOfProblems}&topic=${formattedTopic}&difficulty=${formattedDifficulty}&api-key=${data.ApiKey}`
+    const transactionAPIURL = `http://127.0.0.1:5002/log-transaction?n-problems=${data.numberOfProblems}&topic=${formattedTopic}&difficulty=${formattedDifficulty}&api-key=${data.ApiKey}`;
     fetch(transactionAPIURL)
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
     // Cleanup zip files remaining in the directory
     const cleanupURL = 'http://127.0.0.1:5001/cleanup';
     fetch(cleanupURL)

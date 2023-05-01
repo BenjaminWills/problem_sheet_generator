@@ -1,4 +1,4 @@
-from sqlalchemy import text, create_engine, engine
+from sqlalchemy import create_engine, engine, text
 
 POSTGRES_CONNECTION_STRING = str
 
