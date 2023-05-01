@@ -30,6 +30,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
+    - name: Create .env file in API
+      run: echo open_api_key=""\nproblem_sheet_api_key="" > ./API/.env
+    
+    - name: Create .env file in root
+      run: echo ECR_PATH=""\nAWS_ACCOUNT_ID=""\nAWS_REGION=""\nAWS_ACCESS_KEY_ID=""\nAWS_SECRET_ACCESS_KEY="" > ./.env
+
     - name: Start containers
       run: docker-compose -f "docker-compose.yml" up -d --build
 
