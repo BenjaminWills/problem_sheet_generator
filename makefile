@@ -39,7 +39,7 @@ cleanup:
 
 local_build:
 	# Builds the docker containers that host the API and the frontend
-	docker compose up -d --build
+	docker compose -f docker-compose.yml up -d --build
 
 local_destroy:
 	# Halts services
