@@ -23,6 +23,8 @@ make install_dependencies
 
 ### General
 
+### Problem sheet API env
+
 Ensure that you have an [OpenAI API](https://platform.openai.com/account/api-keys) key in an env file so that the API can run.
 
 ```txt
@@ -31,6 +33,16 @@ open_api_key = "<API KEY>"
 problem_sheet_api_key = 123456789
 ```
 
+### Root env file
+
+This file is used in the makefile and the docker compose file. This is only really necessary if we want to push to AWS's [ECR](https://docs.aws.amazon.com/ecr/index.html).
+
+```txt
+# ./.env
+ECR_PATH=""
+AWS_ACCOUNT_ID=""
+AWS_REGION=""
+```
 
 ## Build project locally
 
