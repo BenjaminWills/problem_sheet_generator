@@ -41,6 +41,12 @@ local_build:
 	# Builds the docker containers that host the API and the frontend
 	docker compose -f docker-compose.yml up -d --build
 
+push_to_cloud:
+	# Builds in the cloud, authenticates, then pushes
+	sh authenticate_docker.sh
+	docker compose -f docker-compose.yml build
+	docker compose -f docker-compose.yml push
+
 local_destroy:
 	# Halts services
 	docker compose down
