@@ -1,3 +1,5 @@
+[![Black Linter](https://github.com/BenjaminWills/problem_sheet_generator/actions/workflows/test_build.yml/badge.svg)](https://github.com/BenjaminWills/problem_sheet_generator/actions/workflows/test_build.yml)
+
 # MATHEMATICS PROBLEM SHEET GENERATOR
 
 In this project I use the open AI API to generate mathematical problem sheets. The idea could be generalised to any kind of problem sheet or essay question for example. I thought this could be useful for student revision.
