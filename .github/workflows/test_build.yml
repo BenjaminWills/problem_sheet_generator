@@ -1,4 +1,4 @@
-name: Black Linter
+name: Test Build
 
 on:
   push:
