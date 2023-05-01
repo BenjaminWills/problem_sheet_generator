@@ -2,8 +2,6 @@ update_requirements:
 	# Save conda recipie and requirements for non conda uses
 	mkdir -p libraries
 	pip freeze > libraries/requirements.txt
-	pip freeze > API/requirements.txt
-	pip freeze > database_API/requirements.txt
 	conda env export > libraries/conda_environment.yml
 
 create_environment:
