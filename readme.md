@@ -77,3 +77,19 @@ psql postgres://root:admin@localhost:5432/transactions
 ```
 
 Then we can query the database as we wish. Alternatively we could use the SQLWrapper to query the database.
+
+### Push to AWS ECR
+
+Run the following command:
+
+```sh
+make push_to_cloud
+```
+
+This command will authenticate docker with the AWS cli. Make sure the 
+
+```sh
+aws configure
+```
+
+Command is run.
