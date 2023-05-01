@@ -29,8 +29,8 @@ Ensure that you have an [OpenAI API](https://platform.openai.com/account/api-key
 
 ```txt
 # ./API/.env
-open_api_key = "<API KEY>"
-problem_sheet_api_key = 123456789
+open_api_key=""
+problem_sheet_api_key=0
 ```
 
 ### Root env file
