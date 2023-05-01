@@ -1,6 +1,6 @@
 [![Test Build](https://github.com/BenjaminWills/problem_sheet_generator/actions/workflows/test_build.yml/badge.svg)](https://github.com/BenjaminWills/problem_sheet_generator/actions/workflows/test_build.yml)
 
-![GitHub repo file count](https://img.shields.io/github/directory-file-count/benjaminwills/problem_sheet_generator)
+![GitHub repo file count](https://img.shields.io/github/directory-file-count/BenjaminWills/problem_sheet_generator)
 
 # MATHEMATICS PROBLEM SHEET GENERATOR
 
