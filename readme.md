@@ -92,4 +92,6 @@ This command will authenticate docker with the AWS cli. Make sure the
 aws configure
 ```
 
-Command is run.
+Command is run, so that we can load the ecr info. 
+
+NOTE: work on automating this so that it can be done via env file.
