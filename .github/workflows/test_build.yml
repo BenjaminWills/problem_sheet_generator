@@ -41,7 +41,7 @@ jobs:
       run: |
         cat << EOF > ./.env
         ECR_PATH=""
-        AWS_ACCOUNT_ID=""
+        AWS_ACCOUNT_ID="hello"
         AWS_REGION=""
         AWS_ACCESS_KEY_ID=""
         AWS_SECRET_ACCESS_KEY=""
