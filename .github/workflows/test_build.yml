@@ -40,8 +40,8 @@ jobs:
     - name: Create .env file in root
       run: |
         cat << EOF > ./.env
-        ECR_PATH=""
-        AWS_ACCOUNT_ID="hello"
+        ECR_PATH="hello"
+        AWS_ACCOUNT_ID=""
         AWS_REGION=""
         AWS_ACCESS_KEY_ID=""
         AWS_SECRET_ACCESS_KEY=""
