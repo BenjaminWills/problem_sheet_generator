@@ -24,6 +24,14 @@ services:
     env_file:
       - ./.env
 
+  docsify:
+    build: ./docs 
+    image: ${ECR_PATH}:docsify_latest
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./.env
+
   # postgres://root:admin@localhost:5432/transactions is the connection string
   transaction_db:
     image: postgres:latest

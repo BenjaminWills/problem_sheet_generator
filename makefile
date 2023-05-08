@@ -49,3 +49,7 @@ push_to_cloud:
 local_destroy:
 	# Halts services
 	docker compose down
+
+display_docs:
+	# Display docs
+	docsify serve ./docs --open

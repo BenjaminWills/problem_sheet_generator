@@ -1,0 +1,20 @@
+# Use the official alpine NodeJS image as the base image
+FROM node:14-alpine
+
+# Set the working directory inside the container
+WORKDIR /docs
+
+# Install docksify
+RUN npm install -g docsify-cli
+
+# Copy current directory into the container
+COPY . .
+
+# Create arguments
+ARG port=3001
+
+# Expose working port
+EXPOSE $port
+
+# Start the Python application
+CMD docsify serve . --port 3001
