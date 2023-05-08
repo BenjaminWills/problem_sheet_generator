@@ -6,7 +6,9 @@
 
 In this project I use the open AI API to generate mathematical problem sheets. The idea could be generalised to any kind of problem sheet or essay question for example. I thought this could be useful for student revision.
 
-## Local Setup
+## Local setup
+
+### Using docker
 
 To setup this project locally run:
 
@@ -19,3 +21,22 @@ Then to access the docs that have instructions on how to use this application ru
 ```sh
 open http://localhost:3001/
 ```
+
+### Not using docker
+
+To set up the conda environment simply run the command:
+
+```sh
+make create_environment
+source activate problem_sheet_generation
+```
+
+In seperate terminals run each line:
+
+```sh
+make start_api
+make start_frontend
+make display_docs
+```
+
+Then the docs should display themselves.

@@ -8,23 +8,6 @@ In this project I use the open AI API to generate mathematical problem sheets. T
 
 ## Setup
 
-### Conda route
-
-To set up the conda environment simply run the command:
-
-```sh
-make create_environment
-source activate problem_sheet_generation
-```
-
-### Pip route
-
-To set up the python libraries simply run the command:
-
-```sh
-make install_dependencies
-```
-
 ### General
 
 ### Problem sheet API env
