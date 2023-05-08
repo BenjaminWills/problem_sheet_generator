@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import FileUploadButton from './FileUploadButton/FileUploadButton';
 import './Upload.css';
 
 function Upload() {
-  return <div><p>Hello world</p></div>;
+  return (
+    <div>
+      <FileUploadButton/>
+    </div>
+    );
 }
 
 export default Upload;
