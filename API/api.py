@@ -5,8 +5,7 @@ from typing import List, Tuple
 from flask import Flask, request, send_file
 from flask_cors import CORS
 from problem_generator.generate_problems import generate_problem_sheet
-from problem_generator.utilities import (format_topic, validate_api_key,
-                                         zip_files)
+from problem_generator.utilities import format_topic, validate_api_key, zip_files
 
 app = Flask(__name__)
 # Add cors so that fetch stops throwing errors

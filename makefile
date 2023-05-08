@@ -26,8 +26,8 @@ start_frontend:
 
 lint:
 	# Lint python files and imports
-	black .
 	isort .
+	black .
 	# Lint all javascript files and fix most issues
 	./frontend/problem-generation/node_modules/.bin/eslint . --fix
 
