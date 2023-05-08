@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route }
 // Import components
 import Navbar from './components/Navbar/Navbar';
 import ProblemGenerationPage from './pages/ProblemGenerationPage';
-import UploadPage from './pages/Upload';
+import UploadPage from './pages/UploadPage';
 import ContactMe from './components/ContactMe/ContactMe';
 import Footer from './components/Footer/Footer';
 
