@@ -34,9 +34,9 @@ source activate problem_sheet_generation
 In seperate terminals run each line:
 
 ```sh
-make start_api
-make start_frontend
-make display_docs
+make start_api # Starts problem sheet API
+make start_frontend # Starts frontend website (needs api to work problem sheet generation)
+make display_docs # Displays docs rendered using docsify
 ```
 
 Then the docs should display themselves.
