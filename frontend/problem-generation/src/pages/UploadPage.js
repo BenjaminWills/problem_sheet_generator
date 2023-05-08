@@ -1,7 +1,9 @@
+import Upload from '../components/Upload/Upload';
+
 function UploadPage() {
   return (
     <div>
-      <p>HELLO WORLD THIS IS THE UPLOAD PAGE</p>
+      <Upload />
     </div>
   );
 }
