@@ -38,6 +38,7 @@ cleanup:
 local_build:
 	# Builds the docker containers that host the API and the frontend
 	docker compose -f docker-compose.yml up -d --build
+	open http://localhost:3000/
 
 push_to_cloud:
 	# Builds in the cloud, authenticates, then pushes
