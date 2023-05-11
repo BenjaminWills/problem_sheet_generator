@@ -1,44 +1,31 @@
 import './FileUploadButton.css';
 import React, { useRef } from 'react';
+import AWS from 'aws-sdk';
+
+require('dotenv').config();
+
+const accessKeyId = process.env.AWS_ACCOUNT_ID;
+const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+const region = process.env.AWS_REGION;
+const bucketName = process.env.AWS_BUCKET_NAME;
+
+AWS.config.update({
+  accessKeyId: accessKeyId,
+  secretAccessKey: secretAccessKey,
+  region: region,
+});
+
+const s3 = new AWS.S3();
 
 const FileUploadButton = () => {
-  const fileInputRef = useRef(null);
-
-  const handleButtonClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    console.log('Selected file:', file);
-  };
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    const file = e.dataTransfer.files[0];
-    console.log('Dropped file:', file);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
-
   return (
-    <div
-      className="file-upload-button"
-      onClick={handleButtonClick}
-      onDrop={handleDrop}
-      onDragOver={handleDragOver}
-    >
-      <input
-        type="file"
-        ref={fileInputRef}
-        onChange={handleFileChange}
-        style={{ display: 'none' }}
-      />
-      <button>Upload</button>
+    <div>
+        <p>accessKeyId</p>
+        <p>secretAccessKey</p>
+        <p>region</p>
+        <p>bucketName</p>
     </div>
-  );
-};
+  )
+  }
 
 export default FileUploadButton;
