@@ -1,0 +1,30 @@
+name: Move Issue to In Progress
+
+on:
+  issues:
+    types:
+      - assigned
+
+jobs:
+  moveIssueToInProgress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Issue Event
+        id: check_issue_event
+        run: echo "The issue event is ${{ github.event.action }}"
+
+      - name: Move Issue to In Progress
+        if: ${{ steps.check_issue_event.outputs.check_issue_event == 'assigned' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUMBER=$(jq --raw-output .issue.number $GITHUB_EVENT_PATH)
+          OWNER=$(jq --raw-output .repository.owner.login $GITHUB_EVENT_PATH)
+          REPO=$(jq --raw-output .repository.name $GITHUB_EVENT_PATH)
+          echo "Moving issue #$ISSUE_NUMBER to 'In Progress'"
+          curl -sSL -X POST \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/$OWNER/$REPO/issues/$ISSUE_NUMBER/moves" \
+            -d '{"column_id": 47fc9ee4}'
