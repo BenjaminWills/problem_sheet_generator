@@ -39,4 +39,4 @@ make start_frontend # Starts frontend website (needs api to work problem sheet g
 make display_docs # Displays docs rendered using docsify 
 ```
 
-Then the docs should display themselves using [docksify](https://github.com/docsifyjs/docsify-cli)
+Then the docs should display themselves using [docsify](https://github.com/docsifyjs/docsify-cli)
