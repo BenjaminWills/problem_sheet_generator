@@ -4,7 +4,16 @@
 
 # MATHEMATICS PROBLEM SHEET GENERATOR
 
-In this project I use the open AI API to generate mathematical problem sheets. The idea could be generalised to any kind of problem sheet or essay question for example. I thought this could be useful for student revision.
+This is a project that uses the [`openai`](https://platform.openai.com/docs/guides/chat/introduction) API to generate mathematical problem sheets. The website has a `react` frontend and a `python` backend.
+
+The end goal of the website is for studentes/people who are interested to be able to generate their own problem sheets.
+
+I also intend to add the following features:
+
+1. A blog for cool ideas
+2. Host on github pages / aws 
+3. Notes summariser
+4. Flash card generator
 
 ## Local setup
 
