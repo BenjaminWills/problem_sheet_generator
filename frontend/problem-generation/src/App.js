@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import ProblemGenerationPage from './pages/ProblemGenerationPage';
 import ContactMe from './components/ContactMe/ContactMe';
 import Footer from './components/Footer/Footer';
+import Blog from './pages/BlogPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" element={<ProblemGenerationPage />} />
         <Route path="/problem-generator" element={<ProblemGenerationPage />} />
         <Route path="/contact-me" element={<ContactMe />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
     </Router>
   );
