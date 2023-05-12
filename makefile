@@ -53,3 +53,6 @@ local_destroy:
 display_docs:
 	# Display docs
 	docsify serve ./docs --open
+
+init:
+	python initialise/initialise.py

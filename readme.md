@@ -8,6 +8,14 @@ In this project I use the open AI API to generate mathematical problem sheets. T
 
 ## Local setup
 
+The first thing to do is run:
+
+```sh
+make init
+```
+
+This will run a python script that will prompt the creation of .env files where necessary.
+
 ### Using docker
 
 To setup this project locally run:
