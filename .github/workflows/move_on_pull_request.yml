@@ -15,7 +15,7 @@ jobs:
         run: echo "The issue event is ${{ github.event.action }}"
 
       - name: Move Issue to In Progress
-        if: ${{ steps.check_issue_event.outputs.check_issue_event == 'assigned' }}
+        if: ${{ github.event.action == 'assigned' }}
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         run: |
