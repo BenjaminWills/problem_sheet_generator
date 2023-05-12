@@ -1,17 +1,19 @@
 import React from 'react';
 import './Blog.css';
 
+var Latex = require('react-latex');
+
 function Blog() {
   return (
     <div>
         <br></br>
         <div className="blog-container">
         <div className="blog-post">
-            <h1>My Blog Post</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>Sed commodo efficitur neque, non pellentesque mi facilisis vitae.</p>
-            <p className="author">Author: John Doe</p>
-            <p className="date">Published on: May 1, 2023</p>
+            <h1>The divergence theorem</h1>
+            <p>Here is the divergence theorem: </p>
+            <Latex>$$\int$$</Latex>
+            <p className="author">Author: Ben Wills</p>
+            <p className="date">Published on: 12th of May 2023</p>
         </div>
 
         <div className="blog-post">
