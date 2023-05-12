@@ -6,7 +6,7 @@ def init_api_env() -> None:
     problem_sheet_api_key = input("Enter your desired problem sheet API key: ")
     keys = ["open_api_key", "problem_sheet_api_key"]
     values = [open_api_key, problem_sheet_api_key]
-    with open("./API/.env_test", "w") as env_file:
+    with open("./API/.env", "w") as env_file:
         for key, value in zip(keys, values):
             env_file.write(f"{key}={value}\n")
 
@@ -37,7 +37,7 @@ def init_main_env() -> None:
         AWS_SECRET_ACCESS_KEY,
         AWS_BUCKET_NAME,
     ]
-    with open("./.env_test", "w") as env_file:
+    with open("./.env", "w") as env_file:
         for key, value in zip(keys, values):
             env_file.write(f"{key}={value}\n")
 
