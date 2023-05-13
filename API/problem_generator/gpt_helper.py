@@ -4,7 +4,6 @@ import openai
 from openai import Completion
 from problem_generator.utilities import GPT_message, make_gpt_message
 
-Errors = List[str]
 GPT_assistant_message = Dict[str, str]
 GPT_system_message = Dict[str, str]
 GPT_user_message = Dict[str, str]
