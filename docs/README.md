@@ -10,27 +10,6 @@ In this project I use the open AI API to generate mathematical problem sheets. T
 
 ### General
 
-### Problem sheet API env
-
-Ensure that you have an [OpenAI API](https://platform.openai.com/account/api-keys) key in an env file so that the API can run.
-
-```txt
-# ./API/.env
-open_api_key=""
-problem_sheet_api_key=0
-```
-
-### Root env file
-
-This file is used in the makefile and the docker compose file. This is only really necessary if we want to push to AWS's [ECR](https://docs.aws.amazon.com/ecr/index.html).
-
-```txt
-# ./.env
-ECR_PATH=""
-AWS_ACCOUNT_ID=""
-AWS_REGION=""
-```
-
 ## Build project locally
 
 ### Non docker users
@@ -83,7 +62,7 @@ Command is run, so that we can load the ecr info.
 
 NOTE: work on automating this so that it can be done via env file.
 
-# API docs
+# Problem sheet API
 
 These are the docs for the problem generator API.
 
@@ -92,7 +71,7 @@ These are the docs for the problem generator API.
 The URL looks like:
 
 ```python
-URL = "http://127.0.0.1:5001/download?n-problems=$5&topic=math&difficulty=hard&api-key=123456789"
+URL = "http://127.0.0.1:5001/download?n-problems=5&topic=math&difficulty=hard&api-key=123456789"
 ```
 
 Here we have a few URL arguments:
@@ -101,3 +80,31 @@ Here we have a few URL arguments:
 2. `topic` - The topic that you wish the sheet to be on
 3. `difficulty` - The difficulty of the sheet, this is rather arbritrary so be as detailed as you wish
 4. `api-key` - This is reserved for your API key. If it is not entered then the requests will not go through
+
+## Project cleanup
+
+The URL looks like:
+
+```python
+URL = "http://127.0.0.1:5001/cleanup"
+```
+
+This will clean up the local machine repository by removing any zip files that may be lingering after the file is sent for download.
+
+# Transaction database API
+
+The transaction db will record the queries that are inputted on the website.
+
+## Log transaction
+
+The URL looks like:
+
+```python 
+URL = "http://127.0.0.1:5002/log-transaction?n-problems=5&topic=addition&difficulty=hard"
+```
+
+This will log the transaction to the database hoseted on a docker container.
+
+1. `n-problems` - This is the number of problems that you request in the problem sheet
+2. `topic` - The topic that you wish the sheet to be on
+3. `difficulty` - The difficulty of the sheet, this is rather arbritrary so be as detailed as you wish

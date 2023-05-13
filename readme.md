@@ -23,7 +23,7 @@ The first thing to do is run:
 make init
 ```
 
-This will run a python script that will prompt the creation of .env files where necessary.
+This will run a python script that will prompt the creation of .env files where necessary, as well as the AWS ECR login.
 
 ### Using docker
 

@@ -13,16 +13,8 @@ install_dependencies:
 	python -m pip install -r libraries/requirements.txt
 
 tests:
-	# Run main file
+	# Run test files
 	python test/test.py
-
-start_api:
-	# Starts the api
-	python API/api.py
-
-start_frontend:
-	# Starts the frontend
-	npm --prefix frontend/problem-generation start
 
 lint:
 	# Lint python files and imports
@@ -34,6 +26,38 @@ lint:
 cleanup:
 	# Removes all zip files from the present directory
 	find . -name "*.zip" -type f -delete
+
+authenticate_docker:
+	# Authenticates docker with the aws ecr
+	docker --version
+	sh authenticate_docker.sh
+
+authenticate_aws:
+	# Authenticates machine with AWS CLI
+	aws --version
+	sh authenticate_aws.sh
+
+create_envs:
+	# Prompts creation of necessary env files
+	python initialise/initialise.py
+
+init:
+	# Initialises the project so all parts work
+	$(MAKE) create_envs
+	$(MAKE) authenticate_aws
+	$(MAKE) authenticate_docker
+
+display_docs:
+	# Display docs
+	docsify serve ./docs --open
+
+start_api:
+	# Starts the api
+	python API/api.py
+
+start_frontend:
+	# Starts the frontend
+	npm --prefix frontend/problem-generation start
 
 local_build:
 	# Builds the docker containers that host the API and the frontend
@@ -49,14 +73,3 @@ push_to_cloud:
 local_destroy:
 	# Halts services
 	docker compose down
-
-display_docs:
-	# Display docs
-	docsify serve ./docs --open
-
-init:
-	python initialise/initialise.py
-	aws --version
-	sh authenticate_aws.sh
-	docker --version
-	sh authenticate_docker.sh

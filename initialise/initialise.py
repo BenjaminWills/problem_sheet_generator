@@ -15,12 +15,12 @@ def init_main_env() -> None:
     """
     Initialises main .env file so that all aws functionality works.
     """
-    ECR_PATH = input("Enter your ECR path: ")
-    AWS_ACCOUNT_ID = input("Enter your AWS account ID: ")
-    AWS_REGION = input("Enter your AWS region: ")
-    AWS_ACCESS_KEY_ID = input("Enter your AWS access key ID: ")
-    AWS_SECRET_ACCESS_KEY = input("Enter your AWS secret access key: ")
-    AWS_BUCKET_NAME = input("Enter your S3 bucket name: ")
+    ECR_PATH = input("Enter your ECR path: ") or "None"
+    AWS_ACCOUNT_ID = input("Enter your AWS account ID: ") or "None"
+    AWS_REGION = input("Enter your AWS region: ") or "None"
+    AWS_ACCESS_KEY_ID = input("Enter your AWS access key ID: ") or "None"
+    AWS_SECRET_ACCESS_KEY = input("Enter your AWS secret access key: ") or "None"
+    AWS_BUCKET_NAME = input("Enter your S3 bucket name: ") or "None"
     keys = [
         "ECR_PATH",
         "AWS_ACCOUNT_ID",
