@@ -10,27 +10,6 @@ In this project I use the open AI API to generate mathematical problem sheets. T
 
 ### General
 
-### Problem sheet API env
-
-Ensure that you have an [OpenAI API](https://platform.openai.com/account/api-keys) key in an env file so that the API can run.
-
-```txt
-# ./API/.env
-open_api_key=""
-problem_sheet_api_key=0
-```
-
-### Root env file
-
-This file is used in the makefile and the docker compose file. This is only really necessary if we want to push to AWS's [ECR](https://docs.aws.amazon.com/ecr/index.html).
-
-```txt
-# ./.env
-ECR_PATH=""
-AWS_ACCOUNT_ID=""
-AWS_REGION=""
-```
-
 ## Build project locally
 
 ### Non docker users
@@ -92,7 +71,7 @@ These are the docs for the problem generator API.
 The URL looks like:
 
 ```python
-URL = "http://127.0.0.1:5001/download?n-problems=$5&topic=math&difficulty=hard&api-key=123456789"
+URL = "http://127.0.0.1:5001/download?n-problems=5&topic=math&difficulty=hard&api-key=123456789"
 ```
 
 Here we have a few URL arguments:
