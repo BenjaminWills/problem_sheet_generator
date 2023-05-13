@@ -62,7 +62,7 @@ Command is run, so that we can load the ecr info.
 
 NOTE: work on automating this so that it can be done via env file.
 
-# API docs
+# Problem sheet API
 
 These are the docs for the problem generator API.
 
@@ -90,3 +90,17 @@ URL = "http://127.0.0.1:5001/cleanup"
 ```
 
 This will clean up the local machine repository by removing any zip files that may be lingering after the file is sent for download.
+
+# Transaction database API
+
+The transaction db will record the queries that are inputted on the website.
+
+## Log transaction
+
+The URL looks like:
+
+```python 
+URL = "http://127.0.0.1:5002/log-transaction?n-problems=5&topic=addition&difficulty=hard&api-key=123456789"
+```
+
+This will log the transaction to the database hoseted on a docker container.
