@@ -26,30 +26,32 @@ const Upload = () => {
 
   return (
     <div>
-      <div
-        className="upload-box"
-        onDragOver={handleDragOver}
-        onDrop={handleDrop}
-      >
-        <input
-          type="file"
-          id="file"
-          className="file-input"
-          onChange={handleFileUpload}
-        />
-        <label htmlFor="file">Drag and drop files here or click to upload</label>
-      </div>
-      {selectedFile && (
-        <div className="file-details">
-          <p>File Name: {selectedFile.name}</p>
-          <p>File Type: {selectedFile.type}</p>
-          <p>File Size: {selectedFile.size} bytes</p>
-          {/* Add more file information as needed */}
+        <br/>
+        <div className="file-upload-container">
+        <div
+            className="upload-box"
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+        >
+            <input
+            type="file"
+            id="file"
+            className="file-input"
+            onChange={handleFileUpload}
+            />
+            <label htmlFor="file">Drag and drop files here or click to upload</label>
         </div>
-      )}
+        {selectedFile && (
+            <div className="file-details">
+            <p>File Name: {selectedFile.name}</p>
+            <p>File Type: {selectedFile.type}</p>
+            <p>File Size: {selectedFile.size} bytes</p>
+            {/* Add more file information as needed */}
+            </div>
+        )}
+        </div>
     </div>
   );
 };
 
 export default Upload;
-
