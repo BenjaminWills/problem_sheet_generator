@@ -6,8 +6,12 @@ def init_api_env() -> None:
     """
     Initialises API .env file so dockerfile build can be successful.
     """
-    open_api_key = input("Enter your open API key: ")
+    print("INITIALISE PROBLEM SHEET API ENV FILE...")
+    print("=" * 60)
+    open_api_key = input("Enter your openai API key: ")
+    print("=" * 60)
     problem_sheet_api_key = input("Enter your desired problem sheet API key: ")
+    print("=" * 60)
     keys = ["open_api_key", "problem_sheet_api_key"]
     values = [open_api_key, problem_sheet_api_key]
     with open(API_ENV_PATH, "w") as env_file:
@@ -19,12 +23,20 @@ def init_main_env() -> None:
     """
     Initialises main .env file so that all aws functionality works.
     """
+    print("INITIALISE MAIN ENV FILE...")
+    print("=" * 60)
     ECR_PATH = input("Enter your ECR path: ") or "None"
+    print("=" * 60)
     AWS_ACCOUNT_ID = input("Enter your AWS account ID: ") or "None"
+    print("=" * 60)
     AWS_REGION = input("Enter your AWS region: ") or "None"
+    print("=" * 60)
     AWS_ACCESS_KEY_ID = input("Enter your AWS access key ID: ") or "None"
+    print("=" * 60)
     AWS_SECRET_ACCESS_KEY = input("Enter your AWS secret access key: ") or "None"
+    print("=" * 60)
     AWS_BUCKET_NAME = input("Enter your S3 bucket name: ") or "None"
+    print("=" * 60)
     keys = [
         "ECR_PATH",
         "AWS_ACCOUNT_ID",
