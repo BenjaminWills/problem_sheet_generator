@@ -56,3 +56,7 @@ display_docs:
 
 init:
 	python initialise/initialise.py
+	aws --version
+	sh authenticate_aws.sh
+	docker --version
+	sh authenticate_docker.sh
