@@ -37,9 +37,13 @@ authenticate_aws:
 	aws --version
 	sh authenticate_aws.sh
 
+create_envs:
+	# Prompts creation of necessary env files
+	python initialise/initialise.py
+
 init:
 	# Initialises the project so all parts work
-	python initialise/initialise.py
+	$(MAKE) create_envs
 	$(MAKE) authenticate_aws
 	$(MAKE) authenticate_docker
 
