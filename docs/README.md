@@ -100,7 +100,11 @@ The transaction db will record the queries that are inputted on the website.
 The URL looks like:
 
 ```python 
-URL = "http://127.0.0.1:5002/log-transaction?n-problems=5&topic=addition&difficulty=hard&api-key=123456789"
+URL = "http://127.0.0.1:5002/log-transaction?n-problems=5&topic=addition&difficulty=hard"
 ```
 
 This will log the transaction to the database hoseted on a docker container.
+
+1. `n-problems` - This is the number of problems that you request in the problem sheet
+2. `topic` - The topic that you wish the sheet to be on
+3. `difficulty` - The difficulty of the sheet, this is rather arbritrary so be as detailed as you wish
