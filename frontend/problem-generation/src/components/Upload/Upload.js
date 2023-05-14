@@ -1,15 +1,49 @@
 import React, { useState } from 'react';
+import AWS from 'aws-sdk'
 import './Upload.css';
 
 const Upload = () => {
+  // Base vars
+
   const [selectedFile, setSelectedFile] = useState(null);
 
+  // Specify AWS params
+  const S3_BUCKET = process.env.REACT_APP_AWS_BUCKET_NAME;
+  const REGION = process.env.REACT_APP_AWS_REGION;
+
+  AWS.config.update({
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
+  })
+
+  const myBucket = new AWS.S3({
+      params: { Bucket: S3_BUCKET},
+      region: REGION,
+  })
+
+  // S3 upload function
+
+  const uploadToS3 = (file) => {
+    const params = {
+            Body: file,
+            Bucket: S3_BUCKET,
+            Key: `uploads/${file.name}`
+        };
+    
+    myBucket.putObject(params,function(err, data) {
+      if (err) console.log(err, err.stack); // an error occurred
+      else     console.log(data);           // successful response
+      })
+  }
+
+  // Handlers
   const handleFileUpload = (event) => {
     event.preventDefault();
     const file = event.target.files[0];
     setSelectedFile(file);
-    // Perform additional logic such as sending the file to the cloud
-    // using an HTTP request here
+
+    // Upload file to cloud
+    uploadToS3(file)
   };
 
   const handleDragOver = (event) => {
@@ -20,8 +54,8 @@ const Upload = () => {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
     setSelectedFile(file);
-    // Perform additional logic such as sending the file to the cloud
-    // using an HTTP request here
+    // Upload to S3
+    uploadToS3(file)
   };
 
   return (
