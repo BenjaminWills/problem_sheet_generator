@@ -1,5 +1,6 @@
 MAIN_ENV_PATH = "./.env"
 API_ENV_PATH = "./API/.env"
+FRONTEND_ENV_PATH = "frontend/problem-generation/.env"
 
 
 def init_api_env() -> None:
@@ -56,6 +57,9 @@ def init_main_env() -> None:
     with open(MAIN_ENV_PATH, "w") as env_file:
         for key, value in zip(keys, values):
             env_file.write(f"{key}={value}\n")
+    with open(FRONTEND_ENV_PATH, "w") as env_file:
+        for key, value in zip(keys, values):
+            env_file.write(f"REACT_APP_{key}={value}\n")
 
 
 def init_envs() -> None:
