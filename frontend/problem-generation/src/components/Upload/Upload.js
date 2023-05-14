@@ -12,7 +12,7 @@ const Upload = () => {
   const REGION = process.env.REACT_APP_AWS_REGION;
 
   AWS.config.update({
-    accessKeyId: process.env.REACT_APP_AWS_ACCOUNT_ID,
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
   })
 
@@ -25,13 +25,15 @@ const Upload = () => {
 
   const uploadToS3 = (file) => {
     const params = {
-            ACL: 'public-read',
             Body: file,
             Bucket: S3_BUCKET,
-            Key: file.name
+            Key: `uploads/${file.name}`
         };
     
-    myBucket.putObject(params)
+    myBucket.putObject(params,function(err, data) {
+      if (err) console.log(err, err.stack); // an error occurred
+      else     console.log(data);           // successful response
+      })
   }
 
   // Handlers
