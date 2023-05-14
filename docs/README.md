@@ -108,3 +108,36 @@ This will log the transaction to the database hoseted on a docker container.
 1. `n-problems` - This is the number of problems that you request in the problem sheet
 2. `topic` - The topic that you wish the sheet to be on
 3. `difficulty` - The difficulty of the sheet, this is rather arbritrary so be as detailed as you wish
+
+# Frontend
+
+## Working with CORS and S3 buckets
+
+When creating the S3 bucket ensure you fill in the CORS policy (will do with terraform at a later date):
+
+Run:
+
+```sh
+open https://s3.console.aws.amazon.com/s3/buckets/<BUCKET NAME>?region=<AWS REGION>&tab=permissions
+```
+
+And navigate down to `Cross-origin resource sharing (CORS)` and paste the following:
+
+```JSON
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "PUT",
+            "POST",
+            "DELETE"
+        ],
+        "AllowedOrigins": [
+            "http://localhost:3000"
+        ],
+        "ExposeHeaders": []
+    }
+]
+```
