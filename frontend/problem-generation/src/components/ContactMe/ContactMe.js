@@ -1,13 +1,10 @@
 import React from 'react';
 
 import './ContactMe.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faGithub, faLinkedin,
-} from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import PDFViewer from './CVDisplayer/CVDisplayer';
 
 function ContactMe() {
+  const pdfURL = './CV/ben_wills_cv_data_science.pdf'
   return (
     <div>
       <div>
@@ -17,6 +14,7 @@ function ContactMe() {
           frontend for a change. Here's how you can contact me.
         </p>
       </div>
+      <PDFViewer/>
     </div>
   );
 }
