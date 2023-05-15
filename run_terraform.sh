@@ -7,7 +7,7 @@ terraform_dir=./terraform
 echo "init in dir: ${terraform_dir}"
 terraform -chdir=${terraform_dir} init \
 -backend=true \
--backend-config "bucket=backend-bucket-problem-sheet-website" \
+-backend-config "bucket=${AWS_BACKEND_BUCKET}" \
 -backend-config "key=terraform.tfstate" \
 -backend-config "region=${AWS_REGION}"
 

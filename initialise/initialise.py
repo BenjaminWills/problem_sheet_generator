@@ -38,6 +38,8 @@ def init_main_env() -> None:
     print("=" * 60)
     AWS_BUCKET_NAME = input("Enter your S3 bucket name: ") or "None"
     print("=" * 60)
+    AWS_BACKEND_BUCKET = input("Enter your terraform backend bucket name: ") or "None"
+    print("=" * 60)
     keys = [
         "ECR_PATH",
         "AWS_ACCOUNT_ID",
@@ -45,6 +47,7 @@ def init_main_env() -> None:
         "AWS_ACCESS_KEY_ID",
         "AWS_SECRET_ACCESS_KEY",
         "AWS_BUCKET_NAME",
+        "AWS_BACKEND_BUCKET",
     ]
     values = [
         ECR_PATH,
@@ -53,6 +56,7 @@ def init_main_env() -> None:
         AWS_ACCESS_KEY_ID,
         AWS_SECRET_ACCESS_KEY,
         AWS_BUCKET_NAME,
+        AWS_BACKEND_BUCKET,
     ]
     with open(MAIN_ENV_PATH, "w") as env_file:
         for key, value in zip(keys, values):
