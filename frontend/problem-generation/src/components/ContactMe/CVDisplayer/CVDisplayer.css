@@ -1,0 +1,23 @@
+.main-container{
+  padding-left: 30%;
+}
+
+.pdf-container {
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid black;
+  overflow: auto;
+}
+
+.sidebar {
+  width: 100px;
+  background-color: #f1f1f1;
+}
+
+.pdf-document {
+  max-width: calc(100% - 100px);
+  max-height: 100%;
+}
