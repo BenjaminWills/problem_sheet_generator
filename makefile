@@ -41,11 +41,16 @@ create_envs:
 	# Prompts creation of necessary env files
 	python initialise/initialise.py
 
+create_bucket:
+	# Creates bucket for the backend
+	sh run_terraform.sh
+
 init:
 	# Initialises the project so all parts work
 	$(MAKE) create_envs
 	$(MAKE) authenticate_aws
 	$(MAKE) authenticate_docker
+	$(MAKE) create_bucket
 
 display_docs:
 	# Display docs
