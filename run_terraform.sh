@@ -15,14 +15,14 @@ terraform -chdir=${terraform_dir} validate
 
 echo "Run terraform plan"
 terraform -chdir=${terraform_dir} plan \
--var="aws_region=${AWS_REGION}"\
--var="aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}"\
--var="aws_access_key=${AWS_ACCESS_KEY_ID}"\
--var="storage_bucket=${AWS_BUCKET_NAME}"
+-var aws_region="${AWS_REGION}" \
+-var aws_secret_access_key="${AWS_SECRET_ACCESS_KEY}" \
+-var aws_access_key="${AWS_ACCESS_KEY_ID}" \
+-var storage_bucket="${AWS_BUCKET_NAME}"
 
 echo "Apply terraform"
-yes yes | terraform -chdir=${terraform_dir} apply  \
--var="aws_region=${AWS_REGION}"\
--var="aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}"\
--var="aws_access_key=${AWS_ACCESS_KEY_ID}"\
--var="storage_bucket=${AWS_BUCKET_NAME}"
+yes yes | terraform -chdir=${terraform_dir} apply \
+-var aws_region="${AWS_REGION}" \
+-var aws_secret_access_key="${AWS_SECRET_ACCESS_KEY}" \
+-var aws_access_key="${AWS_ACCESS_KEY_ID}" \
+-var storage_bucket="${AWS_BUCKET_NAME}"
