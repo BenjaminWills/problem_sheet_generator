@@ -50,6 +50,7 @@ init:
 	$(MAKE) create_envs
 	$(MAKE) authenticate_aws
 	$(MAKE) authenticate_docker
+	$(MAKE) create_bucket
 
 display_docs:
 	# Display docs
