@@ -1,6 +1,6 @@
 [![Test Build](https://github.com/BenjaminWills/problem_sheet_generator/actions/workflows/test_build.yml/badge.svg)](https://github.com/BenjaminWills/problem_sheet_generator/actions/workflows/test_build.yml) [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue)](https://www.linkedin.com/in/benjamin-wills-b22887220/) <a href="mailto:benjaminwills047@gmail.com?subject=Problem%20Sheet%20Generator&body=Hey%20Ben%2C%0D%0A%0D%0AI'm%20just%20emailing%20to%20ask...">
   <img src="https://img.shields.io/badge/email-me-blue?logo=mail.ru" alt="Email Me">
-</a> ![GitHub issues](https://img.shields.io/github/issues/BenjaminWills/problem_sheet_generator)
+</a> ![GitHub issues](https://img.shields.io/github/issues/BenjaminWills/problem_sheet_generator) ![GitHub all releases](https://img.shields.io/github/downloads/BenjaminWills/problem_sheet_generator/total)
 
 # MATHEMATICS PROBLEM SHEET GENERATOR
 
